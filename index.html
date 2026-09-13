@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tazkiya Pathway</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Karla:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F6F1;
+    --paper-raised:#FFFFFF;
+    --ink:#1E2E29;
+    --ink-soft:#4B5B54;
+    --pine:#3F6659;
+    --pine-deep:#2C4A40;
+    --gold:#C39B4A;
+    --rose:#C77B68;
+    --line:#DDE6DD;
+    --shadow: 0 1px 2px rgba(30,46,41,0.06);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(ellipse 60% 40% at 15% 0%, rgba(63,102,89,0.07), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 100% 15%, rgba(195,155,74,0.08), transparent 60%),
+      var(--paper);
+    color:var(--ink);
+    font-family:'Karla', sans-serif;
+    min-height:100vh;
+  }
+  [lang="ar"]{ font-family:'Tajawal', sans-serif; direction:rtl; }
+
+  .wrap{ max-width:920px; margin:0 auto; padding:0 24px; }
+
+  /* ---------- HERO ---------- */
+  .hero{ padding:64px 0 44px; text-align:center; }
+  .mark{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:64px; height:64px; margin-bottom:22px;
+  }
+  .brand-en{
+    font-family:'Fraunces', serif; font-weight:600; font-style:italic;
+    font-size:clamp(32px,6vw,50px); margin:0; letter-spacing:.2px;
+    color:var(--pine-deep); text-wrap:balance;
+  }
+  .brand-ar{
+    font-size:clamp(20px,3.4vw,26px); font-weight:700; color:var(--pine);
+    margin:8px 0 0;
+  }
+  .tagline{ max-width:600px; margin:26px auto 0; display:grid; gap:10px; }
+  .tagline p{ margin:0; font-size:16.5px; line-height:1.7; color:var(--ink-soft); font-weight:500; }
+  .tagline p[lang="ar"]{ font-size:17.5px; line-height:2; }
+
+  .divider{ display:flex; justify-content:center; margin:40px 0; opacity:.8; }
+
+  /* ---------- SECTION LABELS ---------- */
+  .section-head{ text-align:center; margin-bottom:30px; }
+  .section-head .eyebrow-en{
+    font-family:'Karla',sans-serif; font-weight:700; font-size:12.5px;
+    letter-spacing:2px; text-transform:uppercase; color:var(--gold);
+  }
+  .section-head h2{
+    font-family:'Fraunces', serif; font-weight:600; font-size:clamp(22px,3.6vw,30px);
+    margin:8px 0 6px; color:var(--pine-deep);
+  }
+  .section-head .eyebrow-ar{
+    font-size:15.5px; font-weight:700; color:var(--ink-soft); margin:0;
+  }
+
+  /* ---------- RESOURCES ---------- */
+  .resources{ padding:14px 0 60px; }
+  .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
+
+  .card{
+    background:var(--paper-raised); border:1px solid var(--line); border-radius:18px;
+    padding:26px 24px; display:flex; flex-direction:column; gap:14px;
+    box-shadow:var(--shadow);
+  }
+  .card .lang-tag{
+    align-self:flex-start; font-size:11px; font-weight:800; letter-spacing:1px;
+    text-transform:uppercase; padding:4px 10px; border-radius:999px;
+    background:#EEF3EC; color:var(--pine);
+  }
+  .card.ar .lang-tag{ background:#F6EEE4; color:var(--gold); align-self:flex-end; }
+
+  .card h3{
+    font-family:'Fraunces', serif; font-weight:600; font-size:20px; margin:0;
+    color:var(--ink);
+  }
+  .card.ar h3{ text-align:right; }
+
+  .card p{ margin:0; font-size:14.5px; line-height:1.6; color:var(--ink-soft); font-weight:500; flex-grow:1; }
+  .card.ar p{ text-align:right; }
+
+  .dl-btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    text-decoration:none; font-weight:700; font-size:14.5px;
+    padding:12px 18px; border-radius:12px; background:var(--pine); color:#fff;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .dl-btn:hover{ background:var(--pine-deep); transform:translateY(-1px); }
+  .dl-btn:focus-visible{ outline:3px solid var(--gold); outline-offset:2px; }
+  .card.ar .dl-btn{ background:var(--rose); }
+  .card.ar .dl-btn:hover{ background:#B2604C; }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--line); padding:30px 0 44px; text-align:center;
+  }
+  footer .foot-line{ margin:0; font-size:13.5px; color:var(--ink-soft); font-weight:600; }
+  footer .foot-line + .foot-line{ margin-top:6px; }
+
+  @media (prefers-reduced-motion: reduce){ .dl-btn{ transition:none; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <section class="hero">
+    <span class="mark" aria-hidden="true">
+      <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M32 8C32 8 16 20 16 36C16 46.4934 23.1634 52 32 52C40.8366 52 48 46.4934 48 36C48 20 32 8 32 8Z" stroke="#3F6659" stroke-width="2.4" fill="rgba(63,102,89,0.08)"/>
+        <path d="M32 20V46" stroke="#C39B4A" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 6"/>
+      </svg>
+    </span>
+    <h1 class="brand-en">Tazkiya Pathway</h1>
+    <p class="brand-ar" lang="ar" dir="rtl">مسار التزكية</p>
+
+    <div class="tagline">
+      <p lang="en">Gentle self-reflection sheets and daily structure for the inner journey — free to download, in English and Arabic.</p>
+      <p lang="ar" dir="rtl">أوراق للتأمل الذاتي وتنظيم يومك، لرحلتك نحو السكينة الداخلية — متاحة مجانًا بالعربية والإنجليزية.</p>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <svg width="120" height="14" viewBox="0 0 120 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 7C14 -1 26 15 38 7C50 -1 62 15 74 7C86 -1 98 15 110 7" stroke="#C39B4A" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <section class="resources">
+    <div class="section-head">
+      <div class="eyebrow-en">Free Resources</div>
+      <h2>Sheets to download</h2>
+      <p class="eyebrow-ar" lang="ar" dir="rtl">أوراق عمل للتحميل</p>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <span class="lang-tag">English</span>
+        <h3>Aligned Journaling</h3>
+        <p>A guided journaling sheet to check in with yourself and realign your day — print-ready, A4.</p>
+        <a class="dl-btn" href="Aligned_Journaling_A4.pdf">Download PDF ↓</a>
+      </article>
+
+      <article class="card">
+        <span class="lang-tag">English</span>
+        <h3>Let It Go — EFT</h3>
+        <p>An Emotional Freedom Technique (tapping) practice sheet to help release tension and let go — print-ready, A4.</p>
+        <a class="dl-btn" href="EFT_English_Let_It_Go_A4.pdf">Download PDF ↓</a>
+      </article>
+
+      <article class="card ar">
+        <span class="lang-tag">عربي</span>
+        <h3 lang="ar" dir="rtl">تحرر — EFT</h3>
+        <p lang="ar" dir="rtl">ورقة عمل لتقنية التحرر العاطفي (النقر) لمساعدتك على تخفيف التوتر والتحرر منه — جاهزة للطباعة، A4.</p>
+        <a class="dl-btn" href="EFT_Arabic_%D8%AA%D8%AD%D8%B1%D8%B1_A4.pdf" lang="ar" dir="rtl">تحميل PDF ↓</a>
+      </article>
+    </div>
+  </section>
+
+  <footer>
+    <p class="foot-line">🌿 New sheets are added here over time — bookmark this page.</p>
+    <p class="foot-line" lang="ar" dir="rtl">تُضاف أوراق جديدة هنا بين الحين والآخر — احتفظي بهذه الصفحة.</p>
+  </footer>
+</div>
+
+</body>
+</html>
