@@ -1,182 +1,2121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tazkiya Pathway</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Karla:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<title>جورنال النفس الحقيقية</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@300;400;500;700;800&display=swap">
 <style>
   :root{
-    --paper:#F3F6F1;
-    --paper-raised:#FFFFFF;
-    --ink:#1E2E29;
-    --ink-soft:#4B5B54;
-    --pine:#3F6659;
-    --pine-deep:#2C4A40;
-    --gold:#C39B4A;
-    --rose:#C77B68;
-    --line:#DDE6DD;
-    --shadow: 0 1px 2px rgba(30,46,41,0.06);
+    --bg:#f5efe2;
+    --surface:#fffcf5;
+    --surface-2:#efe6d2;
+    --ink:#2b2417;
+    --ink-soft:#6e6250;
+    --ink-faint:#9c8f78;
+    --border:#e4d7ba;
+    --sage:#5c7862;
+    --sage-soft:#e4ebe2;
+    --gold:#bd8442;
+    --gold-soft:#f3e3c9;
+    --rose:#a85c52;
+    --shadow: 0 1px 2px rgba(43,36,23,.06), 0 10px 30px -12px rgba(43,36,23,.18);
+    --radius: 18px;
   }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#181410;
+      --surface:#211b14;
+      --surface-2:#2a2319;
+      --ink:#f1e8d6;
+      --ink-soft:#c2b39b;
+      --ink-faint:#8c7f68;
+      --border:#3c3222;
+      --sage:#8fb39a;
+      --sage-soft:#243027;
+      --gold:#e0a765;
+      --gold-soft:#332614;
+      --rose:#d1897d;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px -12px rgba(0,0,0,.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#181410;
+    --surface:#211b14;
+    --surface-2:#2a2319;
+    --ink:#f1e8d6;
+    --ink-soft:#c2b39b;
+    --ink-faint:#8c7f68;
+    --border:#3c3222;
+    --sage:#8fb39a;
+    --sage-soft:#243027;
+    --gold:#e0a765;
+    --gold-soft:#332614;
+    --rose:#d1897d;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px -12px rgba(0,0,0,.5);
+  }
+
   *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{
-    background:
-      radial-gradient(ellipse 60% 40% at 15% 0%, rgba(63,102,89,0.07), transparent 60%),
-      radial-gradient(ellipse 50% 40% at 100% 15%, rgba(195,155,74,0.08), transparent 60%),
-      var(--paper);
+  body{ background:var(--bg); color:var(--ink); }
+  .app{
+    direction:rtl;
+    font-family:'Tajawal','Segoe UI',Tahoma,sans-serif;
+    font-size:16px;
+    line-height:1.85;
     color:var(--ink);
-    font-family:'Karla', sans-serif;
+    background:var(--bg);
     min-height:100vh;
+    display:flex;
+    flex-direction:column;
   }
-  [lang="ar"]{ font-family:'Tajawal', sans-serif; direction:rtl; }
-
-  .wrap{ max-width:920px; margin:0 auto; padding:0 24px; }
-
-  /* ---------- HERO ---------- */
-  .hero{ padding:64px 0 44px; text-align:center; }
-  .mark{
-    display:inline-flex; align-items:center; justify-content:center;
-    width:64px; height:64px; margin-bottom:22px;
-  }
-  .brand-en{
-    font-family:'Fraunces', serif; font-weight:600; font-style:italic;
-    font-size:clamp(32px,6vw,50px); margin:0; letter-spacing:.2px;
-    color:var(--pine-deep); text-wrap:balance;
-  }
-  .brand-ar{
-    font-size:clamp(20px,3.4vw,26px); font-weight:700; color:var(--pine);
-    margin:8px 0 0;
-  }
-  .tagline{ max-width:600px; margin:26px auto 0; display:grid; gap:10px; }
-  .tagline p{ margin:0; font-size:16.5px; line-height:1.7; color:var(--ink-soft); font-weight:500; }
-  .tagline p[lang="ar"]{ font-size:17.5px; line-height:2; }
-
-  .divider{ display:flex; justify-content:center; margin:40px 0; opacity:.8; }
-
-  /* ---------- SECTION LABELS ---------- */
-  .section-head{ text-align:center; margin-bottom:30px; }
-  .section-head .eyebrow-en{
-    font-family:'Karla',sans-serif; font-weight:700; font-size:12.5px;
-    letter-spacing:2px; text-transform:uppercase; color:var(--gold);
-  }
-  .section-head h2{
-    font-family:'Fraunces', serif; font-weight:600; font-size:clamp(22px,3.6vw,30px);
-    margin:8px 0 6px; color:var(--pine-deep);
-  }
-  .section-head .eyebrow-ar{
-    font-size:15.5px; font-weight:700; color:var(--ink-soft); margin:0;
+  .disp{ font-family:'Aref Ruqaa','Amiri',serif; }
+  h1,h2,h3{ text-wrap:balance; margin:0; }
+  ::selection{ background:var(--gold-soft); }
+  a{ color:inherit; }
+  button{ font-family:inherit; cursor:pointer; }
+  :focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001s !important; transition-duration:.001s !important; }
   }
 
-  /* ---------- RESOURCES ---------- */
-  .resources{ padding:14px 0 60px; }
-  .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
+  /* ---------- topbar ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:40;
+    display:flex; align-items:center; gap:.9rem;
+    padding:.7rem 1.1rem;
+    background:color-mix(in srgb, var(--surface) 92%, transparent);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  .menu-btn{
+    width:40px; height:40px; border-radius:12px; border:1px solid var(--border);
+    background:var(--surface); display:flex; align-items:center; justify-content:center;
+    flex:none; transition:background .15s;
+  }
+  .menu-btn:hover{ background:var(--surface-2); }
+  .menu-btn span{ display:block; width:18px; height:2px; background:var(--ink); position:relative; }
+  .menu-btn span::before,.menu-btn span::after{ content:""; position:absolute; right:0; width:18px; height:2px; background:var(--ink); }
+  .menu-btn span::before{ top:-6px; } .menu-btn span::after{ top:6px; }
+
+  .brand{ display:flex; align-items:center; gap:.55rem; flex:none; }
+  .brand .logo{ width:26px; height:26px; flex:none; }
+  .brand-text{ font-family:'Aref Ruqaa',serif; font-size:1.15rem; font-weight:700; }
+  .brand-text small{ display:block; font-family:'Tajawal',sans-serif; font-size:.62rem; font-weight:500; letter-spacing:.14em; color:var(--ink-faint); }
+
+  .progress-wrap{ flex:1; display:flex; flex-direction:column; gap:.3rem; min-width:0; }
+  .progress-top{ display:flex; justify-content:space-between; align-items:center; font-size:.72rem; color:var(--ink-soft); }
+  .progress-top .save-dot{ display:inline-flex; align-items:center; gap:.35rem; }
+  .progress-top .dot{ width:6px; height:6px; border-radius:50%; background:var(--ink-faint); transition:background .25s, transform .25s; }
+  .progress-top .dot.saved{ background:var(--sage); transform:scale(1.4); }
+  .progress-track{ height:5px; border-radius:5px; background:var(--surface-2); overflow:hidden; }
+  .progress-fill{ height:100%; background:linear-gradient(90deg,var(--sage),var(--gold)); border-radius:5px; transition:width .35s ease; }
+
+  .petals-mini{ flex:none; width:34px; height:34px; }
+
+  /* ---------- drawer ---------- */
+  .drawer-overlay{
+    position:fixed; inset:0; background:rgba(20,16,8,.45); z-index:50;
+    opacity:0; pointer-events:none; transition:opacity .25s;
+  }
+  .drawer-overlay.open{ opacity:1; pointer-events:auto; }
+  .drawer{
+    position:fixed; top:0; bottom:0; right:0; width:min(340px,86vw); z-index:60;
+    background:var(--surface); border-left:1px solid var(--border);
+    transform:translateX(100%); transition:transform .3s cubic-bezier(.4,0,.2,1);
+    display:flex; flex-direction:column; box-shadow:var(--shadow);
+  }
+  .drawer.open{ transform:translateX(0); }
+  .drawer-head{ padding:1.1rem 1.2rem .8rem; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+  .drawer-head h2{ font-family:'Aref Ruqaa',serif; font-size:1.3rem; }
+  .drawer-close{ width:32px;height:32px;border-radius:10px;border:1px solid var(--border);background:var(--surface-2); }
+  .drawer-list{ overflow-y:auto; padding:.6rem; flex:1; }
+  .drawer-stage-label{ font-size:.72rem; letter-spacing:.08em; color:var(--gold); font-weight:700; padding:.9rem .6rem .3rem; }
+  .drawer-item{
+    display:flex; align-items:center; gap:.6rem; width:100%; text-align:right;
+    padding:.55rem .6rem; border-radius:10px; border:none; background:transparent; color:var(--ink);
+    font-size:.9rem;
+  }
+  .drawer-item:hover{ background:var(--surface-2); }
+  .drawer-item.current{ background:var(--sage-soft); color:var(--sage); font-weight:700; }
+  .drawer-item .n{ font-variant-numeric:tabular-nums; color:var(--ink-faint); font-size:.75rem; flex:none; width:1.4rem; }
+  .drawer-foot{ padding:.9rem 1rem 1.1rem; border-top:1px solid var(--border); display:flex; flex-direction:column; gap:.5rem; }
+
+  /* ---------- stage / pages ---------- */
+  .stage{ flex:1; display:flex; justify-content:center; padding:1.6rem 1rem 6.5rem; }
+  .page{ display:none; width:100%; max-width:720px; animation:pageIn .45s ease; }
+  .page.active{ display:block; }
+  @keyframes pageIn{ from{ opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
 
   .card{
-    background:var(--paper-raised); border:1px solid var(--line); border-radius:18px;
-    padding:26px 24px; display:flex; flex-direction:column; gap:14px;
-    box-shadow:var(--shadow);
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:2rem 1.9rem 1.7rem;
   }
-  .card .lang-tag{
-    align-self:flex-start; font-size:11px; font-weight:800; letter-spacing:1px;
-    text-transform:uppercase; padding:4px 10px; border-radius:999px;
-    background:#EEF3EC; color:var(--pine);
+  .eyebrow{ display:flex; align-items:center; gap:.6rem; margin-bottom:.5rem; }
+  .eyebrow .tag{ font-size:.72rem; font-weight:700; letter-spacing:.06em; color:var(--gold); background:var(--gold-soft); padding:.18rem .6rem; border-radius:99px; }
+  .eyebrow .stage-name{ font-size:.78rem; color:var(--ink-faint); }
+  .page-title{ font-family:'Aref Ruqaa',serif; font-size:1.7rem; margin:.2rem 0 1.1rem; }
+  .lede{ color:var(--ink-soft); font-size:.95rem; margin-bottom:1.4rem; }
+  .lede em{ font-style:normal; color:var(--sage); }
+
+  p.body-text{ margin:0 0 1.1rem; color:var(--ink); }
+  .divider{ height:1px; background:var(--border); margin:1.4rem 0; border:none; }
+  .footer-mark{ margin-top:1.6rem; text-align:center; font-size:.68rem; letter-spacing:.16em; color:var(--ink-faint); }
+  .footer-mark b{ font-weight:800; }
+
+  .callout{ background:var(--sage-soft); border-radius:14px; padding:1rem 1.2rem; margin:1.1rem 0; color:var(--ink); font-size:.92rem; }
+  .callout.gold{ background:var(--gold-soft); }
+  .callout-quote{ font-family:'Aref Ruqaa',serif; font-size:1.15rem; color:var(--sage); text-align:center; }
+  .warn{ border:1px solid color-mix(in srgb, var(--rose) 45%, var(--border)); background:color-mix(in srgb, var(--rose) 10%, var(--surface)); border-radius:14px; padding:.9rem 1.1rem; font-size:.85rem; color:var(--ink-soft); margin-top:1rem; }
+  .warn b{ color:var(--rose); }
+
+  .qnum{ display:inline-flex; align-items:center; justify-content:center; width:1.9rem; height:1.9rem; border-radius:50%; background:var(--sage); color:#fff; font-weight:700; font-size:.85rem; flex:none; }
+  .q-block{ display:flex; gap:.8rem; margin-bottom:1.3rem; align-items:flex-start; }
+  .q-block .q-text{ flex:1; font-size:1rem; padding-top:.15rem; }
+  .q-body{ margin-right:2.7rem; }
+
+  textarea, input[type=text], input[type=date]{
+    width:100%; font-family:inherit; font-size:.95rem; color:var(--ink);
+    background:var(--surface-2); border:1px solid var(--border); border-radius:12px;
+    padding:.7rem .9rem; resize:vertical; transition:border-color .15s, background .15s;
   }
-  .card.ar .lang-tag{ background:#F6EEE4; color:var(--gold); align-self:flex-end; }
+  textarea{ min-height:5rem; }
+  textarea:focus, input:focus{ border-color:var(--sage); background:var(--surface); }
+  textarea::placeholder, input::placeholder{ color:var(--ink-faint); }
+  label.field-label{ display:block; font-size:.8rem; color:var(--ink-soft); margin-bottom:.35rem; }
 
-  .card h3{
-    font-family:'Fraunces', serif; font-weight:600; font-size:20px; margin:0;
-    color:var(--ink);
+  .quick-item{ margin-bottom:.9rem; }
+
+  /* chips */
+  .chip-row{ display:flex; flex-wrap:wrap; gap:.55rem; }
+  .chip{
+    border:1.5px solid var(--border); background:var(--surface); color:var(--ink-soft);
+    padding:.42rem 1rem; border-radius:99px; font-size:.88rem; transition:all .15s;
   }
-  .card.ar h3{ text-align:right; }
+  .chip:hover{ border-color:var(--sage); }
+  .chip.selected{ background:var(--sage); border-color:var(--sage); color:#fff; font-weight:700; }
+  .chip.selected.gold-sel{ background:var(--gold); border-color:var(--gold); }
 
-  .card p{ margin:0; font-size:14.5px; line-height:1.6; color:var(--ink-soft); font-weight:500; flex-grow:1; }
-  .card.ar p{ text-align:right; }
-
-  .dl-btn{
-    display:inline-flex; align-items:center; justify-content:center; gap:8px;
-    text-decoration:none; font-weight:700; font-size:14.5px;
-    padding:12px 18px; border-radius:12px; background:var(--pine); color:#fff;
-    transition:background .15s ease, transform .15s ease;
+  /* circle-choice pairs on ownership page */
+  .pair-group{ margin-bottom:1.15rem; }
+  .pair-group .chip-row{ justify-content:center; }
+  .pair-chip{
+    border:2px solid transparent; background:transparent; color:var(--ink-soft);
+    padding:.3rem .3rem; font-size:1rem; border-radius:40% 60% 55% 45%/50% 45% 55% 50%;
+    position:relative;
   }
-  .dl-btn:hover{ background:var(--pine-deep); transform:translateY(-1px); }
-  .dl-btn:focus-visible{ outline:3px solid var(--gold); outline-offset:2px; }
-  .card.ar .dl-btn{ background:var(--rose); }
-  .card.ar .dl-btn:hover{ background:#B2604C; }
-
-  /* ---------- FOOTER ---------- */
-  footer{
-    border-top:1px solid var(--line); padding:30px 0 44px; text-align:center;
+  .pair-chip.selected{
+    border-color:var(--gold); color:var(--ink); font-weight:700;
+    transform:rotate(-1.5deg);
   }
-  footer .foot-line{ margin:0; font-size:13.5px; color:var(--ink-soft); font-weight:600; }
-  footer .foot-line + .foot-line{ margin-top:6px; }
 
-  @media (prefers-reduced-motion: reduce){ .dl-btn{ transition:none; } }
+  /* feeling grid blocks */
+  .feel-block{ margin-bottom:1.5rem; padding-bottom:1.5rem; border-bottom:1px dashed var(--border); }
+  .feel-block:last-child{ border-bottom:none; }
+  .feel-q{ font-weight:700; margin-bottom:.6rem; }
+
+  /* situation tables */
+  .situation{ border:1px solid var(--border); border-radius:14px; padding:1rem; margin-bottom:1rem; background:var(--surface-2); }
+  .situation-head{ display:flex; align-items:center; gap:.6rem; margin-bottom:.7rem; }
+  .situation-head .badge{ background:var(--gold); color:#fff; font-size:.75rem; font-weight:700; padding:.15rem .55rem; border-radius:99px; flex:none; }
+  .situation-head input{ flex:1; background:var(--surface); }
+  .situation-grid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:.6rem; }
+  @media (max-width:560px){ .situation-grid{ grid-template-columns:1fr; } }
+  .situation-grid label.field-label{ margin-bottom:.25rem; }
+  .situation-note{ margin-top:.7rem; font-size:.82rem; color:var(--sage); }
+
+  /* buttons */
+  .btn{
+    display:inline-flex; align-items:center; gap:.4rem; justify-content:center;
+    padding:.65rem 1.3rem; border-radius:12px; border:1px solid var(--sage);
+    background:var(--sage); color:#fff; font-weight:700; font-size:.9rem; transition:transform .12s, opacity .15s;
+  }
+  .btn:hover{ opacity:.92; }
+  .btn:active{ transform:scale(.97); }
+  .btn.outline{ background:transparent; color:var(--ink); border-color:var(--border); }
+  .btn.outline:hover{ border-color:var(--sage); color:var(--sage); }
+  .btn.gold{ background:var(--gold); border-color:var(--gold); }
+  .btn.danger{ background:transparent; color:var(--rose); border-color:color-mix(in srgb, var(--rose) 40%, var(--border)); }
+  .btn.wide{ width:100%; }
+  .btn:disabled{ opacity:.45; cursor:not-allowed; }
+
+  /* cover page */
+  .cover-card{ text-align:center; padding:3.4rem 1.6rem; position:relative; overflow:hidden; }
+  .cover-flower{ width:92px; height:92px; margin:0 auto 1.4rem; }
+  .cover-en{ font-family:'Tajawal',sans-serif; font-weight:800; letter-spacing:.5em; font-size:.85rem; color:var(--gold); margin-bottom:.6rem; }
+  .cover-title{ font-family:'Aref Ruqaa',serif; font-size:2.6rem; color:var(--ink); margin-bottom:.3rem; }
+  .cover-sub{ font-family:'Aref Ruqaa',serif; font-size:1.6rem; color:var(--sage); margin-bottom:1.6rem; }
+  .cover-desc{ color:var(--ink-soft); font-size:.92rem; max-width:32rem; margin:0 auto 2rem; }
+  .cover-float{ position:absolute; opacity:.5; }
+  @keyframes floaty{ 0%,100%{ transform:translateY(0) rotate(0deg);} 50%{ transform:translateY(-10px) rotate(6deg);} }
+
+  /* opening quotes */
+  .quote-stack{ display:flex; flex-direction:column; gap:1.5rem; }
+  .quote-item{ text-align:center; font-family:'Aref Ruqaa',serif; font-size:1.35rem; color:var(--ink); opacity:0; animation:quoteIn .7s ease forwards; }
+  .quote-item span{ display:block; font-family:'Tajawal',sans-serif; font-size:.7rem; color:var(--ink-faint); margin-top:.5rem; letter-spacing:.05em; }
+  @keyframes quoteIn{ from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} }
+
+  /* flow diagram */
+  .flow{ display:flex; align-items:center; justify-content:center; gap:.5rem; flex-wrap:wrap; margin:1.4rem 0; }
+  .flow .node{ background:var(--sage-soft); color:var(--sage); font-weight:700; padding:.6rem 1.1rem; border-radius:12px; font-size:.9rem; }
+  .flow .arrow{ color:var(--ink-faint); font-size:1.1rem; }
+
+  /* breathing box */
+  .breathe-wrap{ display:flex; flex-direction:column; align-items:center; gap:1rem; margin:1.4rem 0; }
+  .breathe-frame{ position:relative; width:180px; height:180px; border:2px solid var(--border); border-radius:18px; }
+  .breathe-dot{
+    position:absolute; width:16px; height:16px; margin:-8px; border-radius:50%;
+    background:var(--gold); box-shadow:0 0 14px 2px color-mix(in srgb, var(--gold) 60%, transparent);
+    top:0; left:0; animation:box-breathe 16s linear infinite; animation-play-state:paused;
+  }
+  @keyframes box-breathe{
+    0%{ top:0%; left:0%; }
+    25%{ top:0%; left:100%; }
+    50%{ top:100%; left:100%; }
+    75%{ top:100%; left:0%; }
+    100%{ top:0%; left:0%; }
+  }
+  .breathe-label{ font-family:'Aref Ruqaa',serif; font-size:1.3rem; color:var(--sage); min-height:1.8rem; }
+  .breathe-count{ font-size:.8rem; color:var(--ink-faint); }
+  .breathe-controls{ display:flex; gap:.6rem; }
+
+  /* timeline */
+  .timeline-wrap{ margin:1.2rem 0; }
+  .timeline-ends{ display:flex; justify-content:space-between; font-size:.75rem; color:var(--ink-faint); margin-bottom:.4rem; }
+  .timeline-track{ position:relative; height:70px; background:var(--surface-2); border-radius:12px; cursor:copy; border:1px dashed var(--border); }
+  .timeline-track::before{ content:""; position:absolute; top:50%; right:14px; left:14px; height:2px; background:var(--border); transform:translateY(-50%); }
+  .timeline-point{ position:absolute; top:50%; transform:translate(50%,-50%); display:flex; flex-direction:column; align-items:center; gap:.2rem; }
+  .timeline-point .dot{ width:12px; height:12px; border-radius:50%; background:var(--gold); border:2px solid var(--surface); }
+  .timeline-point .lbl{ font-size:.68rem; background:var(--surface); border:1px solid var(--border); padding:.1rem .4rem; border-radius:8px; white-space:nowrap; max-width:6rem; overflow:hidden; text-overflow:ellipsis; }
+  .timeline-hint{ font-size:.75rem; color:var(--ink-faint); margin-top:.5rem; }
+  .timeline-form{ display:flex; gap:.5rem; margin-top:.6rem; }
+  .timeline-form input{ flex:1; }
+
+  /* burn overlay */
+  .burn-overlay{
+    position:fixed; inset:0; z-index:80; background:rgba(20,16,8,.72);
+    display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .3s;
+  }
+  .burn-overlay.open{ opacity:1; pointer-events:auto; }
+  .burn-card{ background:var(--surface); border-radius:18px; padding:2rem; width:min(380px,88vw); text-align:center; }
+  .burn-text{ font-family:'Aref Ruqaa',serif; font-size:1.2rem; margin-bottom:1.2rem; transition:opacity .9s, filter .9s, transform .9s; }
+  .burn-text.burning{ opacity:0; filter:blur(6px); transform:scale(.85) translateY(-14px); }
+  .burn-embers{ position:relative; height:30px; }
+  .ember{ position:absolute; bottom:0; font-size:1rem; opacity:0; }
+  .burn-embers.on .ember{ animation:ember-rise 1.1s ease-out forwards; }
+  @keyframes ember-rise{ 0%{ opacity:1; transform:translateY(0) translateX(0);} 100%{ opacity:0; transform:translateY(-70px) translateX(var(--dx,0px)); } }
+  .burn-done{ display:none; color:var(--sage); font-weight:700; margin-top:.6rem; }
+  .burn-done.show{ display:block; animation:quoteIn .5s ease; }
+
+  .released-badge{ display:inline-flex; align-items:center; gap:.4rem; font-size:.8rem; color:var(--gold); background:var(--gold-soft); padding:.3rem .7rem; border-radius:99px; margin-top:.6rem; }
+
+  /* petals */
+  .petal-progress{ display:flex; flex-direction:column; align-items:center; gap:.6rem; margin:1rem 0 .4rem; }
+  .petal-svg{ width:150px; height:150px; }
+  .petal-caption{ font-size:.8rem; color:var(--ink-soft); text-align:center; }
+  .petal-caption b{ color:var(--sage); }
+
+  /* bottom nav */
+  .navbar{
+    position:fixed; bottom:0; right:0; left:0; z-index:40;
+    display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    padding:.7rem 1.1rem; background:color-mix(in srgb, var(--surface) 94%, transparent);
+    backdrop-filter:blur(8px); border-top:1px solid var(--border);
+  }
+  .navbar button.nav-btn{ background:var(--surface); border:1px solid var(--border); color:var(--ink); padding:.55rem 1rem; border-radius:12px; font-size:.85rem; display:flex; align-items:center; gap:.4rem; }
+  .navbar button.nav-btn:hover{ border-color:var(--sage); }
+  .navbar button.nav-btn:disabled{ opacity:.35; }
+  .nav-mid{ text-align:center; font-size:.75rem; color:var(--ink-faint); font-variant-numeric:tabular-nums; }
+
+  .lock-note{ display:flex; align-items:center; gap:.5rem; padding:.8rem 1rem; background:var(--surface-2); border-radius:12px; font-size:.82rem; color:var(--ink-faint); margin-top:.6rem; }
+
+  /* rating scale */
+  .rating-row{ display:flex; gap:.5rem; justify-content:center; flex-wrap:wrap; margin:1rem 0; }
+  .rating-chip{ width:2.3rem; height:2.3rem; border-radius:50%; display:flex; align-items:center; justify-content:center; padding:0; font-weight:700; border:1.5px solid var(--border); background:var(--surface); color:var(--ink-soft); }
+  .rating-chip.selected{ background:var(--gold); border-color:var(--gold); color:#fff; transform:scale(1.12) rotate(0); }
+
+  /* color blob */
+  .color-blob-wrap{ display:flex; flex-direction:column; align-items:center; gap:1.1rem; margin:1.2rem 0; }
+  .color-blob-shape{ width:140px; height:140px; border-radius:58% 42% 53% 47%/48% 58% 42% 52%; background:var(--surface-2); border:1px solid var(--border); transition:background .4s; }
+  .swatch-row{ display:flex; gap:.55rem; justify-content:center; flex-wrap:wrap; }
+  .swatch{ width:2rem; height:2rem; border-radius:50%; border:2px solid var(--border); padding:0; }
+  .swatch.active{ box-shadow:0 0 0 3px var(--surface), 0 0 0 5px var(--gold); }
+
+  /* compare grid */
+  .compare-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .compare-grid .compare-head{ font-weight:700; font-size:.88rem; margin-bottom:.4rem; text-align:center; padding:.35rem; border-radius:8px; }
+  .compare-grid .compare-head.protector{ background:var(--gold-soft); color:var(--gold); }
+  .compare-grid .compare-head.trueself{ background:var(--sage-soft); color:var(--sage); }
+  @media (max-width:520px){ .compare-grid{ grid-template-columns:1fr; } }
+
+  /* day tables */
+  .table-wrap{ overflow-x:auto; margin:1rem 0; }
+  .day-table{ width:100%; min-width:480px; border-collapse:collapse; font-size:.85rem; }
+  .day-table th{ background:var(--surface-2); color:var(--ink-soft); font-weight:700; padding:.5rem .6rem; border:1px solid var(--border); font-size:.78rem; }
+  .day-table td{ border:1px solid var(--border); padding:.4rem; vertical-align:middle; }
+  .day-table td.daynum{ text-align:center; font-weight:700; color:var(--ink-faint); width:2.4rem; background:var(--surface-2); }
+  .day-table input[type=text]{ padding:.4rem .5rem; font-size:.83rem; background:var(--surface); }
+  .day-status-row{ display:flex; gap:.3rem; justify-content:center; }
+  .day-status-row .chip{ padding:.25rem .5rem; font-size:.78rem; }
+
+  /* weekly log */
+  .log-form{ background:var(--surface-2); border:1px solid var(--border); border-radius:14px; padding:1rem; margin-bottom:1.2rem; }
+  .log-form-row{ display:flex; gap:.6rem; margin-bottom:.6rem; }
+  .log-form-row input[type=number]{ width:6rem; flex:none; }
+  .weekly-log-entry{ border:1px solid var(--border); border-radius:12px; padding:.8rem 1rem; margin-bottom:.6rem; background:var(--surface); }
+  .weekly-log-entry .wk-head{ display:flex; justify-content:space-between; align-items:center; font-size:.78rem; color:var(--ink-faint); margin-bottom:.4rem; }
+  .weekly-log-entry .wk-status{ font-size:.72rem; font-weight:700; padding:.1rem .5rem; border-radius:99px; background:var(--sage-soft); color:var(--sage); }
+  .weekly-log-empty{ text-align:center; color:var(--ink-faint); font-size:.85rem; padding:1rem; }
+
+  /* full bloom celebration */
+  .bloom-wrap{ display:flex; flex-direction:column; align-items:center; gap:1rem; margin:1.4rem 0; }
+  .bloom-svg{ width:220px; height:220px; }
+  @keyframes bloom-in{ from{ transform:scale(.7); opacity:0; } to{ transform:scale(1); opacity:1; } }
+  .bloom-svg.show{ animation:bloom-in .7s cubic-bezier(.34,1.56,.64,1); }
 </style>
 </head>
 <body>
+<div class="app" id="app">
+  <div class="drawer-overlay" id="drawerOverlay"></div>
 
-<div class="wrap">
-  <section class="hero">
-    <span class="mark" aria-hidden="true">
-      <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M32 8C32 8 16 20 16 36C16 46.4934 23.1634 52 32 52C40.8366 52 48 46.4934 48 36C48 20 32 8 32 8Z" stroke="#3F6659" stroke-width="2.4" fill="rgba(63,102,89,0.08)"/>
-        <path d="M32 20V46" stroke="#C39B4A" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 6"/>
-      </svg>
-    </span>
-    <h1 class="brand-en">Tazkiya Pathway</h1>
-    <p class="brand-ar" lang="ar" dir="rtl">مسار التزكية</p>
-
-    <div class="tagline">
-      <p lang="en">Gentle self-reflection sheets and daily structure for the inner journey — free to download, in English and Arabic.</p>
-      <p lang="ar" dir="rtl">أوراق للتأمل الذاتي وتنظيم يومك، لرحلتك نحو السكينة الداخلية — متاحة مجانًا بالعربية والإنجليزية.</p>
+  <header class="topbar">
+    <button class="menu-btn" id="menuBtn" aria-label="القائمة"><span></span></button>
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 40 40"><g fill="var(--sage)">
+        <ellipse cx="20" cy="10" rx="6" ry="10"/>
+        <ellipse cx="20" cy="10" rx="6" ry="10" transform="rotate(72 20 20)"/>
+        <ellipse cx="20" cy="10" rx="6" ry="10" transform="rotate(144 20 20)"/>
+        <ellipse cx="20" cy="10" rx="6" ry="10" transform="rotate(216 20 20)"/>
+        <ellipse cx="20" cy="10" rx="6" ry="10" transform="rotate(288 20 20)"/>
+        <circle cx="20" cy="20" r="4" fill="var(--gold)"/>
+      </g></svg>
+      <div class="brand-text">النفس الحقيقية<small>TRUE SELF · تزكية</small></div>
     </div>
-  </section>
-
-  <div class="divider" aria-hidden="true">
-    <svg width="120" height="14" viewBox="0 0 120 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M2 7C14 -1 26 15 38 7C50 -1 62 15 74 7C86 -1 98 15 110 7" stroke="#C39B4A" stroke-width="1.6" stroke-linecap="round"/>
-    </svg>
-  </div>
-
-  <section class="resources">
-    <div class="section-head">
-      <div class="eyebrow-en">Free Resources</div>
-      <h2>Sheets to download</h2>
-      <p class="eyebrow-ar" lang="ar" dir="rtl">أوراق عمل للتحميل</p>
+    <div class="progress-wrap">
+      <div class="progress-top">
+        <span id="pageLabelTop">صفحة ١ من ٢٠</span>
+        <span class="save-dot"><span class="dot" id="saveDot"></span> يُحفظ تلقائيًا على جهازك</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:5%"></div></div>
     </div>
+  </header>
 
-    <div class="grid">
-      <article class="card">
-        <span class="lang-tag">English</span>
-        <h3>Aligned Journaling</h3>
-        <p>A guided journaling sheet to check in with yourself and realign your day — print-ready, A4.</p>
-        <a class="dl-btn" href="Aligned_Journaling_A4.pdf">Download PDF ↓</a>
-      </article>
-
-      <article class="card">
-        <span class="lang-tag">English</span>
-        <h3>Let It Go — EFT</h3>
-        <p>An Emotional Freedom Technique (tapping) practice sheet to help release tension and let go — print-ready, A4.</p>
-        <a class="dl-btn" href="EFT_English_Let_It_Go_A4.pdf">Download PDF ↓</a>
-      </article>
-
-      <article class="card ar">
-        <span class="lang-tag">عربي</span>
-        <h3 lang="ar" dir="rtl">تحرر — EFT</h3>
-        <p lang="ar" dir="rtl">ورقة عمل لتقنية التحرر العاطفي (النقر) لمساعدتك على تخفيف التوتر والتحرر منه — جاهزة للطباعة، A4.</p>
-        <a class="dl-btn" href="EFT_Arabic_%D8%AA%D8%AD%D8%B1%D8%B1_A4.pdf" lang="ar" dir="rtl">تحميل PDF ↓</a>
-      </article>
+  <nav class="drawer" id="drawer" aria-label="فهرست الصفحات">
+    <div class="drawer-head">
+      <h2>الفهرس</h2>
+      <button class="drawer-close" id="drawerClose" aria-label="إغلاق">✕</button>
     </div>
-  </section>
+    <div class="drawer-list" id="drawerList"></div>
+    <div class="drawer-foot">
+      <button class="btn outline" id="exportBtn">⬇ نزّل نسخة من إجاباتك</button>
+      <button class="btn danger" id="resetBtn">امسح كل الإجابات وابدأ من جديد</button>
+    </div>
+  </nav>
 
-  <footer>
-    <p class="foot-line">🌿 New sheets are added here over time — bookmark this page.</p>
-    <p class="foot-line" lang="ar" dir="rtl">تُضاف أوراق جديدة هنا بين الحين والآخر — احتفظي بهذه الصفحة.</p>
+  <main class="stage" id="stage">
+
+    <!-- PAGE 0 — COVER -->
+    <section class="page" data-page="0" data-stage="مقدمة">
+      <div class="card cover-card">
+        <svg class="cover-flower" viewBox="0 0 100 100"><g fill="var(--sage)" opacity=".9">
+          <ellipse cx="50" cy="26" rx="14" ry="24"/>
+          <ellipse cx="50" cy="26" rx="14" ry="24" transform="rotate(72 50 50)"/>
+          <ellipse cx="50" cy="26" rx="14" ry="24" transform="rotate(144 50 50)"/>
+          <ellipse cx="50" cy="26" rx="14" ry="24" transform="rotate(216 50 50)"/>
+          <ellipse cx="50" cy="26" rx="14" ry="24" transform="rotate(288 50 50)"/>
+          <circle cx="50" cy="50" r="9" fill="var(--gold)"/>
+        </g></svg>
+        <div class="cover-en">TRUE SELF</div>
+        <h1 class="cover-title">جورنال الوعي والتحرر</h1>
+        <div class="cover-sub">النفس الحقيقية</div>
+        <p class="cover-desc">رحلة تفاعلية على ١٢ أسبوع، على خمس مراحل — من الوعي بحالتك دلوقتي، للرجوع لجذور سلوكك، للتمييز بين اللي بيحميك واللي هو انت فعلاً، للتقبل والرحمة بالذات، ولالتزام عملي بيستمر بعد ما تخلص. النسخة دي بتتحفظ على جهازك تلقائيًا، تقدر تسيبها وترجعلها إمتى ما حبيت.</p>
+        <button class="btn gold" id="startBtn">ابدأ رحلتك ←</button>
+      </div>
+    </section>
+
+    <!-- PAGE 1 — OWNERSHIP -->
+    <section class="page" data-page="1" data-stage="البداية · ٠٠">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٠</span><span class="stage-name">ملكيتك الخاصة</span></div>
+        <h2 class="page-title">هذا النوتبوك ملك لـ</h2>
+        <p class="lede">صاحب هذه الرحلة. اكتب اسمك هنا — من دلوقتي، النسخة دي بقت نسختك إنت.</p>
+        <div class="quick-item">
+          <label class="field-label">اسمك</label>
+          <input type="text" data-key="owner-name" placeholder="اكتب اسمك هنا">
+        </div>
+        <div class="quick-item">
+          <label class="field-label">"أنا شخص حر، وبفضّل ..."</label>
+          <input type="text" data-key="owner-affirmation" placeholder="كمّل الجملة">
+        </div>
+
+        <hr class="divider">
+        <p class="lede">أقرب لك إيه؟ — دوّر دائرة حواليين اختيارك. مفيش إجابة صح أو غلط، دي مجرد لمحات منك.</p>
+        <div class="pair-group"><div class="chip-row" data-group="pair-sun" data-mode="single">
+          <button class="chip pair-chip" data-value="شروق الشمس">شروق الشمس</button>
+          <button class="chip pair-chip" data-value="غروب الشمس">غروب الشمس</button>
+        </div></div>
+        <div class="pair-group"><div class="chip-row" data-group="pair-nature" data-mode="single">
+          <button class="chip pair-chip" data-value="الغابة">الغابة</button>
+          <button class="chip pair-chip" data-value="الصحراء">الصحراء</button>
+          <button class="chip pair-chip" data-value="البحر">البحر</button>
+        </div></div>
+        <div class="pair-group"><div class="chip-row" data-group="pair-colors" data-mode="single">
+          <button class="chip pair-chip" data-value="الأحمر">الأحمر</button>
+          <button class="chip pair-chip" data-value="الأخضر">الأخضر</button>
+          <button class="chip pair-chip" data-value="الأزرق">الأزرق</button>
+          <button class="chip pair-chip" data-value="الأصفر">الأصفر</button>
+        </div></div>
+        <div class="pair-group"><div class="chip-row" data-group="pair-pets" data-mode="single">
+          <button class="chip pair-chip" data-value="القطط">القطط</button>
+          <button class="chip pair-chip" data-value="الكلاب">الكلاب</button>
+        </div></div>
+        <div class="pair-group"><div class="chip-row" data-group="pair-drink" data-mode="single">
+          <button class="chip pair-chip" data-value="القهوة">القهوة</button>
+          <button class="chip pair-chip" data-value="الشاي">الشاي</button>
+        </div></div>
+
+        <hr class="divider">
+        <h3 class="page-title" style="font-size:1.2rem">لمحات منك</h3>
+        <div class="quick-item"><label class="field-label">أكتر آلة موسيقية بتحبها</label><input type="text" data-key="glimpse-instrument"></div>
+        <div class="quick-item"><label class="field-label">أكتر اسم أو صفة لربنا بتحبها</label><input type="text" data-key="glimpse-godname"></div>
+        <div class="quick-item"><label class="field-label">أكتر مكان بتحس فيه بالانتماء</label><input type="text" data-key="glimpse-belonging"></div>
+        <div class="quick-item"><label class="field-label">مين أكتر شخص بيوحشك</label><input type="text" data-key="glimpse-miss"></div>
+        <div class="quick-item"><label class="field-label">أكتر سنة اتعلمت منها</label><input type="text" data-key="glimpse-year"></div>
+
+        <hr class="divider">
+        <div class="situation-grid" style="grid-template-columns:1fr 1fr;">
+          <div><label class="field-label">تاريخ النهارده</label><input type="date" data-key="owner-date"></div>
+          <div><label class="field-label">توقيعك</label><input type="text" data-key="owner-signature" placeholder="امضِ هنا" style="font-family:'Aref Ruqaa',serif; font-size:1.2rem;"></div>
+        </div>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية — ٢</div>
+      </div>
+    </section>
+
+    <!-- PAGE 2 — OPENING QUOTES -->
+    <section class="page" data-page="2" data-stage="البداية · ٠٠">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٠</span><span class="stage-name">الافتتاحية</span></div>
+        <h2 class="page-title">قبل ما تبدأ، اقرأها ببطء</h2>
+        <div class="quote-stack" id="quoteStack">
+          <p class="quote-item" style="animation-delay:.1s">نفسك المطمئنة أولى بيك من نفسك الأمارة بالسوء</p>
+          <p class="quote-item" style="animation-delay:.5s">التقبل هو الباب الملكي للتغيير</p>
+          <p class="quote-item" style="animation-delay:.9s">سنة الله في الكون التدرج</p>
+          <p class="quote-item" style="animation-delay:1.3s">أنا بفعل ما في وسعي، وهذا كافي</p>
+          <p class="quote-item" style="animation-delay:1.7s">من برعم مقفول، لزهرة كاملة<span>كده هتكون رحلتك</span></p>
+        </div>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية — ٣</div>
+      </div>
+    </section>
+
+    <!-- PAGE 3 — INTRO 1 -->
+    <section class="page" data-page="3" data-stage="البداية · ٠٠">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٠</span><span class="stage-name">المقدمة ١/٢</span></div>
+        <h2 class="page-title">قبل السكشن الأول</h2>
+        <p class="body-text">إنت دلوقتي بتحمل الورقة دي عشان حاجة جواك حسّت إنها محتاجة تتغيّر. مش شرط تكون عارف الحاجة دي بالظبط، وده طبيعي. أول خطوة في أي تغيير حقيقي مش إنك تحل المشكلة، إنما إنك تشوفها بوضوح الأول. وده هو الوعي.</p>
+
+        <div class="eyebrow" style="margin-top:1.6rem"><span class="tag">٠١</span></div>
+        <h3 class="page-title" style="font-size:1.25rem">ليه محتاجين الوعي أصلاً؟</h3>
+        <p class="body-text">كتير من السلوكيات اللي بنكررها، حتى لو مؤذية لينا، بنعملها من غير ما نفكر فيها. زي ما اليد بترجع لوحدها من على حاجة سخنة، عقلنا بيرجع لردود أفعال اتعلمها من زمان عشان يحمينا، حتى لو النتيجة دلوقتي مش لصالحنا. الوعي هو اللحظة اللي بنوقف فيها الحركة الأوتوماتيك دي ونسأل: "أنا بعمل كده ليه؟". من غير السؤال ده، مفيش تغيير ممكن يحصل — بس تكرار.</p>
+
+        <div class="eyebrow" style="margin-top:1.6rem"><span class="tag">٠٢</span></div>
+        <h3 class="page-title" style="font-size:1.25rem">الفرق بين العقل الواعي واللاواعي</h3>
+        <p class="body-text">عقلك الواعي هو الجزء اللي بيفكر، بيحلل، وبيختار — زي قمة الجبل الجليدي الظاهرة فوق الميه. عقلك اللاواعي هو الكتلة الأكبر المغمورة تحتها: مخزن ضخم من العادات والذكريات وردود الأفعال اللي اتكوّنت من تجاربك، وبيشتغل تلقائي من غير ما تحس بيه. أغلب سلوكياتنا اليومية — وأغلب اللي بنعتبره "طبعي كده" — منبعه من هناك. الوركبوك دي مش هتحاول تسيطر على اللاواعي بالقوة، هتحاول تنوّر عليه شوية شوية عشان تقدر تشوفه وتتعامل معاه.</p>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية — ٤</div>
+      </div>
+    </section>
+
+    <!-- PAGE 4 — INTRO 2 -->
+    <section class="page" data-page="4" data-stage="البداية · ٠٠">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٠</span><span class="stage-name">المقدمة ٢/٢</span></div>
+        <div class="eyebrow" style="margin-top:.2rem"><span class="tag">٠٣</span></div>
+        <h2 class="page-title" style="font-size:1.4rem">فكرة ← شعور ← إحساس ← سلوك</h2>
+        <div class="flow">
+          <div class="node">فكرة</div><span class="arrow">←</span>
+          <div class="node">شعور</div><span class="arrow">←</span>
+          <div class="node">إحساس</div><span class="arrow">←</span>
+          <div class="node">سلوك</div>
+        </div>
+        <p class="body-text">أي سلوك بنعمله بيمر بسلسلة قبل ما يوصل لمرحلة الفعل: فكرة (اللي بيقولها عقلك) ← شعور (الحالة النفسية اللي بتنتج) ← إحساس (اللي بيحصل في جسمك) ← سلوك (الفعل اللي بتعمله). مثال بسيط: حد بعت لك رسالة ومردش. فكرة تيجي في بالك: "أكيد زعلان مني". الفكرة دي بتولّد شعور بالقلق، والشعور ده بيتحول لإحساس جسدي: ضيق في الصدر أو توتر في المعدة. وفي الآخر، بتلاقي نفسك بتعمل سلوك — تبعت رسايل كتير، أو تقعد تفكر بشكل مبالغ فيه، أو تتجنب الشخص خالص. السلسلة دي بتحصل في ثواني، وغالبًا من غير ما نلاحظها. أول حاجة هنتعلمها في الوركبوك دي إننا نبطّئ السلسلة دي ونشوف كل حلقة فيها لوحدها.</p>
+
+        <div class="eyebrow" style="margin-top:1.2rem"><span class="tag">٠٤</span></div>
+        <h3 class="page-title" style="font-size:1.25rem">إيه اللي هتقدّمه الوركبوك خلال ١٢ أسبوع</h3>
+        <p class="body-text">خلال الـ١٢ أسبوع الجايين، هنمشي مع بعض في خمس مراحل: هنبدأ بالوعي بحالتك دلوقتي، بعدين هنرجع لجذور السلوك ده وأصله، وبعدين هنتعلم نميّز بين الجزء اللي بيحاول يحميك والذات الحقيقية بتاعتك، وهنوصل لمرحلة التقبل والرحمة بالذات، ونختم بالتزام عملي وخطوات صغيرة تستمر بعد ما تخلص الوركبوك. مش هدفنا إننا نوصلك لمثالية أو نلغي كل سلوك مؤذي بين ليلة وضحاها. هدفنا إن كل خطوة تاخدها تكون عن وعي واختيار، مش عن رد فعل تلقائي.</p>
+        <div class="callout gold"><p class="callout-quote">مش هدفنا المثالية.<br>هدفنا إنك تختار، مش تتفاعل بس.</p></div>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية — ٥</div>
+      </div>
+    </section>
+
+    <!-- PAGE 5 — STAGE 1 / Q1 -->
+    <section class="page" data-page="5" data-stage="المرحلة الأولى · الوعي">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠١</span><span class="stage-name">المرحلة الأولى — الوعي · أسبوع ١-٢</span></div>
+        <h2 class="page-title">أنا مين دلوقتي، وعايز أبقى مين</h2>
+        <p class="lede">الأسئلة الجاية مش امتحان، ومفيش إجابة صح أو غلط. اكتب أول حاجة تجيلك، من غير ما تحاول تجمّلها. خد وقتك.</p>
+
+        <div class="q-block"><span class="qnum">١</span><span class="q-text">لو حد سألك دلوقتي "انت مين؟"، هتوصف نفسك إزاي، من غير ما تفكر كتير؟</span></div>
+        <div class="q-body"><textarea data-key="q1-who-now" placeholder="اكتب إجابتك هنا..."></textarea></div>
+
+        <div class="q-block"><span class="qnum">٢</span><span class="q-text">إيه الحاجات اللي بتعملها بانتظام دلوقتي وحاسس إنها مش بتمثلك؟</span></div>
+        <div class="q-body"><textarea data-key="q1-not-you" placeholder="اكتب إجابتك هنا..."></textarea></div>
+
+        <div class="q-block"><span class="qnum">٣</span><span class="q-text">إيه أكتر حاجة بتزعجك في نفسك النهارده؟</span></div>
+        <div class="q-body"><textarea data-key="q1-bothers" placeholder="اكتب إجابتك هنا..."></textarea></div>
+
+        <div class="q-block"><span class="qnum">٤</span><span class="q-text">لو حد قريب منك قال عليك جملة وحدة تلخص شخصيتك دلوقتي، هتحب تكون إيه؟</span></div>
+        <div class="q-body"><textarea data-key="q1-one-sentence" placeholder="اكتب إجابتك هنا..."></textarea></div>
+
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية — ٦</div>
+      </div>
+    </section>
+
+    <!-- PAGE 6 — Q2 -->
+    <section class="page" data-page="6" data-stage="المرحلة الأولى · الوعي">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠١</span><span class="stage-name">المرحلة الأولى — الوعي</span></div>
+        <h2 class="page-title">هتبقى مين؟</h2>
+        <p class="lede">لو مفيش أي عايق — وقت، فلوس، خوف من حكم الناس — تخيّل نفسك في المواقف دي:</p>
+
+        <div class="q-block"><span class="qnum">١</span><span class="q-text">هتشتغل إيه لو معاك فلوس مبتخلصش؟</span></div>
+        <div class="q-body"><textarea data-key="q2-money" placeholder="اكتب إجابتك هنا..."></textarea></div>
+
+        <div class="q-block"><span class="qnum">٢</span><span class="q-text">هتصاحب مين لو كل الناس بتحبك وعايزة تصحبك؟</span></div>
+        <div class="q-body"><textarea data-key="q2-friends" placeholder="اكتب إجابتك هنا..."></textarea></div>
+
+        <div class="q-block"><span class="qnum">٣</span><span class="q-text">هتوصف شكلك وشخصيتك إزاي لو ليك حرية الاختيار بالكامل؟</span></div>
+        <div class="q-body"><textarea data-key="q2-appearance" placeholder="اكتب إجابتك هنا..."></textarea></div>
+
+        <div class="q-block"><span class="qnum">٤</span><span class="q-text">هتقدم إيه كخير لغيرك — خدمة، سلعة، فلوس، أو مساعدة — لو تملك التمكين الكامل؟</span></div>
+        <div class="q-body"><textarea data-key="q2-give" placeholder="اكتب إجابتك هنا..."></textarea></div>
+
+        <hr class="divider">
+        <label class="field-label">✎ مساحة حرة</label>
+        <textarea data-key="q2-free-space" style="min-height:6rem" placeholder="اكتب أي حاجة حابب تضيفها..."></textarea>
+        <p class="lede" style="margin-top:.9rem">الفرق اللي هتلاقيه بين إجاباتك مش دليل على فشلك. هو بوصلة بتوريك ناحية فين انت ماشي، مش حكم على مكانك دلوقتي.</p>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية — ٧</div>
+      </div>
+    </section>
+
+    <!-- PAGE 7 — Q3 feelings -->
+    <section class="page" data-page="7" data-stage="المرحلة الأولى · الوعي">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٢</span><span class="stage-name">المرحلة الأولى — الوعي</span></div>
+        <h2 class="page-title">بحس بإيه؟</h2>
+        <p class="lede">مفيش شعور واحد "صح" — المشاعر بتتداخل في بعض عادي جدًا. دوّر على اللي بيلمسك في قطع الشعور اللي حواليك، واختار كل اللي بينطبق عليك، واكتب أهم سلوك بيحصل.</p>
+
+        <div class="feel-block">
+          <div class="feel-q">إيه الشعور والسلوك الغالب لما تقضي وقت كبير مع أهلك؟</div>
+          <div class="chip-row" data-group="feel-family" data-mode="multi">
+            <button class="chip" data-value="فرح">فرح</button><button class="chip" data-value="قلق">قلق</button>
+            <button class="chip" data-value="خوف">خوف</button><button class="chip" data-value="حزن">حزن</button>
+            <button class="chip" data-value="حب">حب</button><button class="chip" data-value="غضب">غضب</button>
+            <button class="chip" data-value="امتنان">امتنان</button><button class="chip" data-value="فخر">فخر</button>
+          </div>
+          <input type="text" style="margin-top:.6rem" data-key="feel-family-behavior" placeholder="أكتر سلوك بيحصل...">
+        </div>
+
+        <div class="feel-block">
+          <div class="feel-q">إيه الشعور والسلوك الغالب لما تقضي وقت كبير في الشغل؟</div>
+          <div class="chip-row" data-group="feel-work" data-mode="multi">
+            <button class="chip" data-value="فرح">فرح</button><button class="chip" data-value="قلق">قلق</button>
+            <button class="chip" data-value="خوف">خوف</button><button class="chip" data-value="حزن">حزن</button>
+            <button class="chip" data-value="حب">حب</button><button class="chip" data-value="غضب">غضب</button>
+            <button class="chip" data-value="امتنان">امتنان</button><button class="chip" data-value="فخر">فخر</button>
+          </div>
+          <input type="text" style="margin-top:.6rem" data-key="feel-work-behavior" placeholder="أكتر سلوك بيحصل...">
+        </div>
+
+        <div class="feel-block">
+          <div class="feel-q">إيه الشعور والسلوك الغالب لما تبص على حسابك في البنك أو تتكلم على الفلوس؟</div>
+          <div class="chip-row" data-group="feel-money" data-mode="multi">
+            <button class="chip" data-value="حماس">حماس</button><button class="chip" data-value="وحدة">وحدة</button>
+            <button class="chip" data-value="ملل">ملل</button><button class="chip" data-value="أمان">أمان</button>
+            <button class="chip" data-value="حيرة">حيرة</button>
+          </div>
+          <input type="text" style="margin-top:.6rem" data-key="feel-money-behavior" placeholder="أكتر سلوك بيحصل...">
+        </div>
+
+        <div class="feel-block">
+          <div class="feel-q">إيه الشعور والسلوك الغالب لما تقعد لوحدك؟</div>
+          <div class="chip-row" data-group="feel-alone" data-mode="multi">
+            <button class="chip" data-value="حماس">حماس</button><button class="chip" data-value="وحدة">وحدة</button>
+            <button class="chip" data-value="ملل">ملل</button><button class="chip" data-value="أمان">أمان</button>
+            <button class="chip" data-value="حيرة">حيرة</button>
+          </div>
+          <input type="text" style="margin-top:.6rem" data-key="feel-alone-behavior" placeholder="أكتر سلوك بيحصل...">
+        </div>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية — ٨</div>
+      </div>
+    </section>
+
+    <!-- PAGE 8 — Q4 situations table -->
+    <section class="page" data-page="8" data-stage="المرحلة الأولى · الوعي">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٣</span><span class="stage-name">المرحلة الأولى — الوعي</span></div>
+        <h2 class="page-title">بعمل إيه لما بحس بكده؟</h2>
+        <p class="lede">إيه أكتر ٥ سلوكيات أو مشاعر بتعطلك عن أهدافك وبتعكر مزاجك؟ اكتب كل واحد منهم لوحده، مقسّم لثلاث خطوات: المثير (اللي حصل) — السلوك (اللي عملته) — النتيجة (اللي حصل بعدين).</p>
+
+        <div class="situation">
+          <div class="situation-head"><span class="badge">١ من ٥</span><input type="text" data-key="p9-1-title" placeholder="اسم السلوك أو الشعور"></div>
+          <div class="situation-grid">
+            <div><label class="field-label">المثير</label><textarea data-key="p9-1-trigger"></textarea></div>
+            <div><label class="field-label">السلوك</label><textarea data-key="p9-1-behavior"></textarea></div>
+            <div><label class="field-label">النتيجة</label><textarea data-key="p9-1-result"></textarea></div>
+          </div>
+          <p class="situation-note">اللي عملته كان أقصى حاجة قدرت عليها في اللحظة دي، مش لازم يكون مثالي.</p>
+        </div>
+
+        <div class="situation">
+          <div class="situation-head"><span class="badge">٢ من ٥</span><input type="text" data-key="p9-2-title" placeholder="اسم السلوك أو الشعور"></div>
+          <div class="situation-grid">
+            <div><label class="field-label">المثير</label><textarea data-key="p9-2-trigger"></textarea></div>
+            <div><label class="field-label">السلوك</label><textarea data-key="p9-2-behavior"></textarea></div>
+            <div><label class="field-label">النتيجة</label><textarea data-key="p9-2-result"></textarea></div>
+          </div>
+          <p class="situation-note">أي حد تاني كان ممكن يعمل نفس الحاجة لو كان مكانك بنفس الظروف.</p>
+        </div>
+
+        <div class="situation">
+          <div class="situation-head"><span class="badge">٣ من ٥</span><input type="text" data-key="p9-3-title" placeholder="اسم السلوك أو الشعور"></div>
+          <div class="situation-grid">
+            <div><label class="field-label">المثير</label><textarea data-key="p9-3-trigger"></textarea></div>
+            <div><label class="field-label">السلوك</label><textarea data-key="p9-3-behavior"></textarea></div>
+            <div><label class="field-label">النتيجة</label><textarea data-key="p9-3-result"></textarea></div>
+          </div>
+          <p class="situation-note">إنك بتلاحظ السلوك ده دلوقتي، ده في حد ذاته خطوة مكنتش تقدر عليها زمان.</p>
+        </div>
+
+        <div class="situation">
+          <div class="situation-head"><span class="badge">٤ من ٥</span><input type="text" data-key="p9-4-title" placeholder="اسم السلوك أو الشعور"></div>
+          <div class="situation-grid">
+            <div><label class="field-label">المثير</label><textarea data-key="p9-4-trigger"></textarea></div>
+            <div><label class="field-label">السلوك</label><textarea data-key="p9-4-behavior"></textarea></div>
+            <div><label class="field-label">النتيجة</label><textarea data-key="p9-4-result"></textarea></div>
+          </div>
+          <p class="situation-note">مش لازم تحكم على نفسك عشان تتغيّر. الحكم بيوقف التغيير مش بيسرّعه.</p>
+        </div>
+
+        <div class="situation">
+          <div class="situation-head"><span class="badge">٥ من ٥</span><input type="text" data-key="p9-5-title" placeholder="اسم السلوك أو الشعور"></div>
+          <div class="situation-grid">
+            <div><label class="field-label">المثير</label><textarea data-key="p9-5-trigger"></textarea></div>
+            <div><label class="field-label">السلوك</label><textarea data-key="p9-5-behavior"></textarea></div>
+            <div><label class="field-label">النتيجة</label><textarea data-key="p9-5-result"></textarea></div>
+          </div>
+          <p class="situation-note">خطوة خطوة، إنت بتتعرف على نفسك أكتر، وده كل اللي مطلوب دلوقتي.</p>
+        </div>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية — ٩</div>
+      </div>
+    </section>
+
+    <!-- PAGE 9 — STAGE 1 REFLECTION -->
+    <section class="page" data-page="9" data-stage="المرحلة الأولى · الوعي">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">وقفة</span><span class="stage-name">خد لحظة، وتنفس · قبل ما تدخل مرحلة الجذور</span></div>
+        <h2 class="page-title">إحساسك بعد المرحلة</h2>
+
+        <div class="q-block"><span class="qnum">؟</span><span class="q-text">إيه اتفاجئت بيه عن نفسك؟</span></div>
+        <div class="q-body"><textarea data-key="refl1-surprise"></textarea></div>
+        <div class="q-block"><span class="qnum">؟</span><span class="q-text">إيه ارتحت إنه طلع على ورق؟</span></div>
+        <div class="q-body"><textarea data-key="refl1-relief"></textarea></div>
+
+        <hr class="divider">
+        <h3 class="page-title" style="font-size:1.2rem">تمرين الإفراغ</h3>
+        <p class="body-text">فكّر في معتقد واحد سلبي أو مش واقعي اكتشفته جواك النهارده، وحاسس إنه جاي من خوف أو جهل قديم. اكتبه هنا، وبعدين "احرقه" رمزيًا — المعتقد ده مش هيختفي بس عشان كتبته، لكن إنت دلوقتي شايفه وواعي بيه، وده كل اللي محتاجه في اللحظة دي.</p>
+        <textarea data-key="release1-belief" placeholder="اكتب المعتقد اللي عايز تتحرر منه..."></textarea>
+        <button class="btn gold" style="margin-top:.7rem" id="burn1Btn">🔥 حرّق الورقة</button>
+        <div id="released1Badge"></div>
+
+        <hr class="divider">
+        <h3 class="page-title" style="font-size:1.2rem">زاد رصيدك</h3>
+        <div class="q-block"><span class="qnum">؟</span><span class="q-text">إيه أكتر حاجة انت فخور إنك عملتها في المرحلة دي، حتى لو صغيرة؟</span></div>
+        <div class="q-body"><textarea data-key="credit1-proud"></textarea></div>
+        <div class="quick-item"><label class="field-label">لو هتدي الأمل لون تتخيل يبقى إيه؟</label><input type="text" data-key="credit1-color"></div>
+
+        <hr class="divider">
+        <div class="petal-progress">
+          <svg class="petal-svg" viewBox="0 0 100 100" id="petalSvg1">
+            <g id="petalGroup1"></g>
+          </svg>
+          <p class="petal-caption" id="petalCaption1">بتلة ١ من ٥ — مرحلة الوعي</p>
+          <button class="btn outline" id="activatePetal1">فعّل البتلة — اعتبرت المرحلة اتقفلت</button>
+        </div>
+
+        <div class="quick-item" style="margin-top:1rem">
+          <label class="field-label">لو حابب، لخّص المرحلة اللي فاتت في جملة واحدة — ملاحظة شخصية ليك انت</label>
+          <input type="text" data-key="refl1-note">
+        </div>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية — ١٠</div>
+      </div>
+    </section>
+
+    <!-- PAGE 10 — STAGE 2 intro / vagus nerve -->
+    <section class="page" data-page="10" data-stage="المرحلة الثانية · الجذور">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٢</span><span class="stage-name">المرحلة الثانية — الجذور · أسبوع ٣-٥</span></div>
+        <h2 class="page-title">تعرف على العصب الحائر</h2>
+        <p class="body-text">العصب الحائر هو أطول عصب في جسمك، بيربط المخ بالقلب والرئتين والجهاز الهضمي، وهو المسؤول عن حالة "الهدوء والراحة" في جسمك. لما يكون متعب أو ضعيف، بتحس بقلق مستمر، خفقان، أو مشاكل هضمية بترجع كل ما توترت. لما يكون قوي ونشط، بترجع لهدوءك بسرعة بعد أي موقف صعب. أسهل حاجة تنشّطه: الزفير الطويل (أطول من الشهيق)، الهمهمة أو الغرغرة، والتنفس اللي هتتعلمه دلوقتي.</p>
+        <p class="lede" style="font-size:.78rem">(مبني على نظرية Polyvagal — Stephen Porges)</p>
+
+        <h3 class="page-title" style="font-size:1.15rem; margin-top:1.3rem">مشروبات وأعشاب بتساعد تهدّي العصب الحائر</h3>
+        <div class="callout">
+          <p class="body-text" style="margin-bottom:.6rem"><b>شاي البابونج</b> — يهدّي الجهاز العصبي ويساعد على الاسترخاء</p>
+          <p class="body-text" style="margin-bottom:.6rem"><b>الزنجبيل الدافئ</b> — يريح الجهاز الهضمي ويقلل التوتر المرتبط بيه</p>
+          <p class="body-text" style="margin-bottom:.6rem"><b>بلسم الليمون (ميليسا)</b> — من الأعشاب المعروفة بدعمها للهدوء العصبي</p>
+          <p class="body-text" style="margin-bottom:.6rem"><b>النعناع</b> — يهدّي المعدة ويساعد على استرخاء التنفس</p>
+          <p class="body-text" style="margin-bottom:.6rem"><b>ماء دافئ بالليمون والعسل</b> — بداية بسيطة تساعد جسمك يبطّئ شوية</p>
+          <p class="body-text" style="margin-bottom:0"><b>اللافندر</b> (شاي أو رايحة) — بيُستخدم تقليديًا للتهدئة والاسترخاء</p>
+        </div>
+        <p class="lede" style="font-size:.78rem">دي مشروبات مهدّية بشكل عام، مش بديل عن علاج — استشير دكتور لو بتاخد أدوية أو عندك حالة مرضية.</p>
+
+        <h3 class="page-title" style="font-size:1.15rem; margin-top:1.3rem">تنفس الصندوق</h3>
+        <p class="lede">شهيق ٤ · احبس ٤ · زفير ٤ · احبس ٤ — كرره ٣-٤ مرات قبل ما تبدأ.</p>
+        <div class="breathe-wrap">
+          <div class="breathe-frame"><div class="breathe-dot" id="breatheDot"></div></div>
+          <div class="breathe-label" id="breatheLabel">اضغط ابدأ</div>
+          <div class="breathe-count" id="breatheCount">دورات النهارده: <span id="breatheCountNum">0</span></div>
+          <div class="breathe-controls">
+            <button class="btn" id="breatheToggle">ابدأ</button>
+            <button class="btn outline" id="breatheAddCycle">+ سجّل دورة</button>
+          </div>
+        </div>
+        <div class="callout" style="text-align:center"><p class="callout-quote" style="font-size:1rem">"الأمان اللي جوايا أكبر من أي موقف مررت بيه"</p></div>
+
+        <div class="warn"><b>لو حسيت بنوبة هلع:</b> تقنية ١-٢-٣-٤-٥ الحسية + تنفس الصندوق. لو تكررت، استشر مختص.</div>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية — ١١</div>
+      </div>
+    </section>
+
+    <!-- PAGE 11 — roots family/friends -->
+    <section class="page" data-page="11" data-stage="المرحلة الثانية · الجذور">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٤</span><span class="stage-name">المرحلة الثانية — الجذور</span></div>
+        <h2 class="page-title">الجو اللي عشت/بعيش فيه</h2>
+        <p class="lede">غمّض عينك ثانية واحدة قبل كل سؤال، واسأل صوتك من جوا — حتى لو مش عارف الإجابة بعقلك، سيبها تيجيلك من غير ما تجبرها.</p>
+
+        <h3 class="page-title" style="font-size:1.1rem">الأسرة</h3>
+        <div class="q-body" style="margin-right:0"><textarea data-key="roots-family" placeholder="إيه اللي اتربيت عليه في بيتك بخصوص التعامل مع المشاعر الصعبة؟"></textarea></div>
+        <label class="field-label" style="margin-top:-.6rem; margin-bottom:1.2rem">إيه اللي اتربيت عليه في بيتك بخصوص التعامل مع المشاعر الصعبة؟</label>
+
+        <h3 class="page-title" style="font-size:1.1rem">الأصدقاء</h3>
+        <div class="q-body" style="margin-right:0"><textarea data-key="roots-friends" placeholder="إيه اللي اتعلمته من دائرة أصحابك عن الطريقة الصح للتصرف أو الحس؟"></textarea></div>
+        <label class="field-label" style="margin-top:-.6rem">إيه اللي اتعلمته من دائرة أصحابك عن "الطريقة الصح" للتصرف أو الحس؟</label>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية — ١٢</div>
+      </div>
+    </section>
+
+    <!-- PAGE 12 — roots society/work -->
+    <section class="page" data-page="12" data-stage="المرحلة الثانية · الجذور">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٤</span><span class="stage-name">الجو اللي عشت/بعيش فيه — تكملة</span></div>
+
+        <h3 class="page-title" style="font-size:1.1rem">المجتمع / الثقافة</h3>
+        <div class="q-body" style="margin-right:0"><textarea data-key="roots-society" placeholder="إيه الرسايل اللي وصلتلك من المجتمع عن القوة، الضعف، أو العيب؟"></textarea></div>
+        <label class="field-label" style="margin-top:-.6rem; margin-bottom:1.2rem">إيه الرسايل اللي وصلتلك من المجتمع عن القوة، الضعف، أو "العيب"؟</label>
+
+        <h3 class="page-title" style="font-size:1.1rem">الدراسة أو الشغل</h3>
+        <div class="q-body" style="margin-right:0"><textarea data-key="roots-work" placeholder="إيه اللي اتعلمته هناك عن قد إيه لازم تبقى قوي أو متماسك قدام التانيين؟"></textarea></div>
+        <label class="field-label" style="margin-top:-.6rem">إيه اللي اتعلمته هناك عن قد إيه لازم تبقى قوي أو متماسك قدام التانيين؟</label>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية — ١٣</div>
+      </div>
+    </section>
+
+    <!-- PAGE 13 — pivotal experience -->
+    <section class="page" data-page="13" data-stage="المرحلة الثانية · الجذور">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٤</span><span class="stage-name">الجو اللي عشت/بعيش فيه — تكملة</span></div>
+        <h3 class="page-title" style="font-size:1.1rem">تجربة مفصلية</h3>
+        <p class="lede">فيه موقف واحد حاسم في حياتك حسيت فيه إن نظرتك للحياة أو لنفسك اتغيرت بعده؟ إيه هو؟</p>
+        <textarea data-key="roots-pivotal" style="min-height:8rem"></textarea>
+
+        <hr class="divider">
+        <label class="field-label">مساحة حرة — اكتب أي حاجة حسيتها أثناء الإجابة على السكشن ده ومحتاج تفضفض عنها قبل ما تكمل</label>
+        <textarea data-key="roots-freespace" style="min-height:7rem"></textarea>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية — ١٤</div>
+      </div>
+    </section>
+
+    <!-- PAGE 14 — understanding pause (reading) -->
+    <section class="page" data-page="14" data-stage="المرحلة الثانية · الجذور">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">وقفة فهم</span><span class="stage-name">قبل ما نكمل</span></div>
+        <h2 class="page-title">لحظة فهم قبل ما نكمل</h2>
+        <p class="lede">مش كل صفحة محتاجة تفريغ — الصفحة دي هدفها إنها تدّيك بدل ما تاخد منك.</p>
+
+        <h3 class="page-title" style="font-size:1.15rem">الشفاء مش نسيان</h3>
+        <p class="body-text">الشفاء من شعور مؤلم مرتبط بذكرى أو معتقد مغلوط، مش معناه إنك هتنسى اللي حصل. العلم بيقول إن الذكريات مبتتمسحش، لكن كل مرة نرجع نستحضرها، بتدخل لفترة قصيرة في حالة "قابلة للتعديل" (نظرية إعادة التماسك — Memory Reconsolidation)، وده بيدّينا فرصة نغيّر حمولتها العاطفية من غير ما نمحيها. النتيجة اليومية: مش إنك تنسى، لكن إنك تبقى انت اللي بتحدد إزاي هتتعامل مع الذكرى دي — مش هي اللي بتتحكم في قرارك وردة فعلك. يعني ترجع تبقى صاحب قرارك وسيد نفسك، مش العكس.</p>
+        <p class="lede" style="font-size:.78rem">(مبني على أبحاث إعادة تماسك الذاكرة — Nader &amp; LeDoux, 2000؛ وأدبيات علاج الصدمة — Bessel van der Kolk)</p>
+
+        <h3 class="page-title" style="font-size:1.15rem; margin-top:1.3rem">قيمتك مش موضوع نقاش</h3>
+        <p class="body-text">لو حابب تحلل الموضوع بالمنطق الأول: قيمتك كإنسان مش معادلة بتتغيّر حسب إنجازاتك أو رضا التانيين عنك. العلم بيفرّق بين "تقدير الذات" (بيتوقف على المقارنة والإنجاز، وبيهتز بسهولة)، و"الرحمة الذاتية" (مبنية على قبول غير مشروط، وبتفضل ثابتة حتى في أصعب اللحظات) — وأبحاث د. كريستين نيف بتوضح إن اللي بيعتمدوا على الرحمة الذاتية بيكونوا أكتر استقرار نفسي ومرونة قدام الفشل. لو المعتقد ده اتطبّق فعلاً: قرارتك بتبقى مبنية على اللي انت عايزه مش خوفك من رفض حد، وفشلك بيبقى معلومة تتعلم منها، مش دليل على إنك أقل قيمة.</p>
+        <p class="lede" style="font-size:.78rem">(مبني على نظرية Unconditional Positive Self-Regard — Carl Rogers؛ وأبحاث الرحمة الذاتية — Kristin Neff)</p>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية — ١٥</div>
+      </div>
+    </section>
+
+    <!-- PAGE 15 — learned behavior Q1 -->
+    <section class="page" data-page="15" data-stage="المرحلة الثانية · الجذور">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٥</span><span class="stage-name">المرحلة الثانية — الجذور</span></div>
+        <h2 class="page-title">اتعلمت السلوك ده منين؟</h2>
+        <p class="lede">غمّض عينك واسأل صوتك من جوا قبل كل سؤال — مش كل إجابة لازم تيجي من التفكير المنطقي.</p>
+        <div class="q-block"><span class="qnum">١</span><span class="q-text">مين أول حد شفته بيتعامل بالطريقة دي؟</span></div>
+        <div class="q-body"><textarea data-key="learned-q1" style="min-height:9rem"></textarea></div>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية — ١٦</div>
+      </div>
+    </section>
+
+    <!-- PAGE 16 — learned behavior Q2 -->
+    <section class="page" data-page="16" data-stage="المرحلة الثانية · الجذور">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٥</span><span class="stage-name">اتعلمت السلوك ده منين؟ — تكملة</span></div>
+        <div class="q-block"><span class="qnum">٢</span><span class="q-text">إيه اللي كنت محتاجه ساعتها ومكنش موجود، فاضطريت تطور السلوك ده كبديل؟</span></div>
+        <div class="q-body"><textarea data-key="learned-q2" style="min-height:9rem"></textarea></div>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية — ١٧</div>
+      </div>
+    </section>
+
+    <!-- PAGE 17 — learned behavior Q3 + free space -->
+    <section class="page" data-page="17" data-stage="المرحلة الثانية · الجذور">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٥</span><span class="stage-name">اتعلمت السلوك ده منين؟ — تكملة</span></div>
+        <div class="q-block"><span class="qnum">٣</span><span class="q-text">لو السلوك ده كان بيحميك في وقت معين، هل لسه محتاج للحماية دي بنفس الشكل دلوقتي؟</span></div>
+        <div class="q-body"><textarea data-key="learned-q3"></textarea></div>
+        <hr class="divider">
+        <label class="field-label">مساحة حرة — اكتب أي حاجة حسيتها أثناء الإجابة على السكشن ده قبل ما تقفل الصفحة</label>
+        <textarea data-key="learned-freespace" style="min-height:7rem"></textarea>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية — ١٨</div>
+      </div>
+    </section>
+
+    <!-- PAGE 18 — feeling origin + timeline -->
+    <section class="page" data-page="18" data-stage="المرحلة الثانية · الجذور">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٦</span><span class="stage-name">المرحلة الثانية — الجذور</span></div>
+        <h2 class="page-title">الشعور ده جايلي منين؟</h2>
+        <p class="lede">غمّض عينك واسأل صوتك من جوا — الذكرى اللي هتيجيلك مش لازم تكون الأوضح أو الأكبر، خليها تيجي زي ما هي.</p>
+
+        <div class="q-block"><span class="qnum">١</span><span class="q-text">إيه السن أو المرحلة اللي حسيت فيها بالإحساس ده لأول مرة، على قد ما تفتكر؟</span></div>
+        <div class="q-body"><textarea data-key="feeling-origin-age"></textarea></div>
+
+        <div class="q-block"><span class="qnum">٢</span><span class="q-text">لما بتحس بالإحساس ده، إيه أقرب مرة في حياتك حسيت فيها بنفس الإحساس بالظبط؟</span></div>
+        <div class="q-body"><textarea data-key="feeling-origin-recent"></textarea></div>
+
+        <hr class="divider">
+        <h3 class="page-title" style="font-size:1.1rem">خط زمني بصري</h3>
+        <p class="lede">ارسم خط من أقدم ذكرى ليها علاقة بالإحساس ده لحد دلوقتي — دوس على أي نقطة في الخط عشان تحط عليها محطة فاكرها.</p>
+        <div class="timeline-wrap">
+          <div class="timeline-ends"><span>دلوقتي</span><span>قديم</span></div>
+          <div class="timeline-track" id="timelineTrack"></div>
+          <div class="timeline-form" id="timelineForm" hidden>
+            <input type="text" id="timelineInput" placeholder="سمّي المحطة دي...">
+            <button class="btn" id="timelineAdd">إضافة</button>
+            <button class="btn outline" id="timelineCancel">إلغاء</button>
+          </div>
+          <p class="timeline-hint">دوس في أي مكان على الخط لإضافة محطة. دوس على أي محطة موجودة عشان تمسحها.</p>
+        </div>
+
+        <hr class="divider">
+        <label class="field-label">مساحة حرة — اكتب أي حاجة حسيتها أثناء الإجابة على السكشن ده قبل ما تقفل الصفحة</label>
+        <textarea data-key="feeling-origin-freespace" style="min-height:6rem"></textarea>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية — ١٩</div>
+      </div>
+    </section>
+
+    <!-- PAGE 19 — STAGE 2 REFLECTION -->
+    <section class="page" data-page="19" data-stage="المرحلة الثانية · الجذور">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">وقفة</span><span class="stage-name">خد لحظة، وتنفس · قبل ما تدخل مرحلة التمييز</span></div>
+        <h2 class="page-title">إحساسك بعد المرحلة</h2>
+        <div class="q-block"><span class="qnum">؟</span><span class="q-text">إيه اللي هتاخده معاك من رحلتك في جذور السلوك ده، قبل ما تكمل؟</span></div>
+        <div class="q-body"><textarea data-key="refl2-takeaway"></textarea></div>
+
+        <hr class="divider">
+        <h3 class="page-title" style="font-size:1.2rem">تمرين الإفراغ</h3>
+        <p class="body-text">فكّر في معتقد سلبي ورثته من حد قريب منك أو من بيئة حواليك، وحاسس إنه مش بيمثلك فعلاً. المعتقد ده مش ملكك — كان بس أقرب حاجة اتعلمتها في وقتها.</p>
+        <textarea data-key="release2-belief" placeholder="اكتب المعتقد اللي عايز تتحرر منه..."></textarea>
+        <button class="btn gold" style="margin-top:.7rem" id="burn2Btn">🔥 حرّق الورقة</button>
+        <div id="released2Badge"></div>
+
+        <hr class="divider">
+        <h3 class="page-title" style="font-size:1.2rem">زاد رصيدك</h3>
+        <div class="q-block"><span class="qnum">؟</span><span class="q-text">إيه أشجع حاجة اكتشفتها عن نفسك وانت بتدور في جذورك؟</span></div>
+        <div class="q-body"><textarea data-key="credit2-brave"></textarea></div>
+
+        <hr class="divider">
+        <div class="petal-progress">
+          <svg class="petal-svg" viewBox="0 0 100 100" id="petalSvg2"><g id="petalGroup2"></g></svg>
+          <p class="petal-caption" id="petalCaption2">بتلة ٢ من ٥ — مرحلة الجذور</p>
+          <button class="btn outline" id="activatePetal2">فعّل البتلة — اعتبرت المرحلة اتقفلت</button>
+        </div>
+
+        <div class="lock-note">🌿 جاهز؟ الصفحة الجاية هتاخدك لمرحلة التمييز — هتتعرف فيها على الجزء اللي بيحاول يحميك، وتفرقه عن ذاتك الحقيقية.</div>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية — ٢٠</div>
+      </div>
+    </section>
+
+    <!-- PAGE 20 — STAGE 3 intro -->
+    <section class="page" data-page="20" data-stage="المرحلة الثالثة · التمييز">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٣</span><span class="stage-name">المرحلة الثالثة — التمييز · أسبوع ٦-٧</span></div>
+        <h2 class="page-title">التمييز: تفرقة الحماية عن الأذى</h2>
+        <p class="body-text">بعد رحلتك في مرحلة الجذور اللي فاتت، وفهمك منين اتعلمت السلوك ده — جت مرحلة التمييز عشان تفّرق بين جزء جواك بيحاول يحميك فعلاً، وسلوك بقى مؤذي من كتر ما فضل بينّفذ نفس الطريقة القديمة من غير ما يتحدّث مع الوقت.</p>
+
+        <h3 class="page-title" style="font-size:1.1rem">إيه هو الجزء الحامي؟</h3>
+        <p class="body-text">عقلنا مبني من "أجزاء" مختلفة، وكل جزء نشأ في وقت معيّن عشان يحميك من ألم أو تهديد كان حقيقي وقتها. الجزء ده مش عدو ولا خلل — هو استجابة ذكية اتعلمها عقلك من موقف عشته فعلاً.</p>
+        <p class="lede" style="font-size:.78rem">(مبني على نظرية Internal Family Systems — Richard Schwartz)</p>
+
+        <h3 class="page-title" style="font-size:1.1rem; margin-top:1rem">امتى بيتحول لأذى؟</h3>
+        <p class="body-text">المشكلة مش في نية الجزء، لكن في إنه بيفضل يستخدم نفس الطريقة القديمة حتى لو الظروف اتغيرت أو فهمه للموقف كان محدود من الأول. سلوك اتقصد بيه الحماية، ينّفذ بطريقة بتأذي بدل ما تحمي.</p>
+
+        <div class="callout">
+          <h4 style="margin:0 0 .5rem; font-size:.92rem; color:var(--sage)">مثال يوضح الفكرة</h4>
+          <p class="body-text" style="margin:0">تخيّل طفل صغير شاف عربية ريموت كنترول بتتحرك بسرعة قريب من حيوانه الأليف، وحس إنها ممكن تأذيه. الجزء الحامي جواه اتحرك فورًا عشان "يحمي" الحيوان — لكن بسبب فهمه المحدود وقتها بحكم سنه وخبرته، طريقة تحركه السريعة كسرت العربية أو اللعبة، أو حتى خبطت الحيوان نفسه من غير قصد وهو بيحاول يبعده عن الخطر. النية كانت حماية خالصة، لكن التنفيذ سبب أذى — مش لأن الجزء ده شرير، لكن لأن فهمه وقتها كان محدود.</p>
+        </div>
+        <p class="lede">السكاشن الجاية هتساعدك تتعرف على الجزء ده اللي بيحميك، وتشوف الفرق بينه وبين ذاتك الحقيقية.</p>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 21 — protector Q1 -->
+    <section class="page" data-page="21" data-stage="المرحلة الثالثة · التمييز">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٧</span><span class="stage-name">التعرف على "الأجزاء" الحامية</span></div>
+        <h2 class="page-title">التعرف على الأجزاء الحامية</h2>
+        <p class="lede">هدف السكشن ده مش تحاسب نفسك على السلوك، إنما تفهم الجزء اللي بيقف وراه — كل سلوك مؤذي غالبًا بيحاول يحميك من حاجة، حتى لو الطريقة نفسها بقت مؤذية دلوقتي. فكر في السلوك اللي بتكرره واللي بتحس إنه مش بيمثل ذاتك الحقيقية.</p>
+        <div class="q-block"><span class="qnum">١</span><span class="q-text">الجزء ده اللي بيدفعك تعمل السلوك ده، بيحاول يحميك من إيه بالظبط؟</span></div>
+        <div class="q-body"><textarea data-key="s3-protect-what" style="min-height:9rem"></textarea></div>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 22 — protector Q2 -->
+    <section class="page" data-page="22" data-stage="المرحلة الثالثة · التمييز">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٧</span><span class="stage-name">التعرف على "الأجزاء" الحامية — تكملة</span></div>
+        <div class="q-block"><span class="qnum">٢</span><span class="q-text">لو الجزء ده كان قدامك دلوقتي وقدر يتكلم، هيقولك إيه عن السبب اللي خلاه يظهر؟</span></div>
+        <div class="q-body"><textarea data-key="s3-protect-say" style="min-height:9rem"></textarea></div>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 23 — protector Q3 -->
+    <section class="page" data-page="23" data-stage="المرحلة الثالثة · التمييز">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٧</span><span class="stage-name">التعرف على "الأجزاء" الحامية — تكملة</span></div>
+        <div class="q-block"><span class="qnum">٣</span><span class="q-text">من إمتى الجزء ده موجود معاك، على قد ما تفتكر؟</span></div>
+        <div class="q-body"><textarea data-key="s3-protect-since" style="min-height:9rem"></textarea></div>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 24 — protector Q4 -->
+    <section class="page" data-page="24" data-stage="المرحلة الثالثة · التمييز">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٧</span><span class="stage-name">التعرف على "الأجزاء" الحامية — تكملة</span></div>
+        <div class="q-block"><span class="qnum">٤</span><span class="q-text">لو قدرت تشكره على اللي عمله عشانك، بدل ما تحاربه، هتقوله إيه؟</span></div>
+        <div class="q-body"><textarea data-key="s3-protect-thanks" style="min-height:7rem"></textarea></div>
+        <hr class="divider">
+        <label class="field-label">مساحة حرة — اكتب أي حاجة حسيتها أثناء الإجابة على السكشن ده قبل ما تكمل</label>
+        <textarea data-key="s3-free1" style="min-height:6rem"></textarea>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 25 — true self qualities 1 -->
+    <section class="page" data-page="25" data-stage="المرحلة الثالثة · التمييز">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٨</span><span class="stage-name">التعرف على الذات الحقيقية</span></div>
+        <h2 class="page-title">التعرف على الذات الحقيقية</h2>
+        <p class="lede">الصفات الجاية مش حاجة هتخترعها، هي موجودة فيك أصلاً — السكشن ده بس بيوريك فين ظهرت قبل كده. لكل صفة: افتكر لحظة حقيقية حسيت فيها بيها، واكتب إزاي ممكن تستحضرها في موقف بتواجهه دلوقتي (٢-٣ أسطر).</p>
+
+        <div class="feel-block"><div class="feel-q">١ · الهدوء</div><p class="lede" style="margin-bottom:.5rem">امتى حسيت بيه في موقف صعب؟</p><textarea data-key="s3-quality-calm" placeholder="٢-٣ أسطر..."></textarea></div>
+        <div class="feel-block"><div class="feel-q">٢ · الفضول</div><p class="lede" style="margin-bottom:.5rem">امتى فتحت على حاجة جديدة من غير خوف؟</p><textarea data-key="s3-quality-curiosity" placeholder="٢-٣ أسطر..."></textarea></div>
+        <div class="feel-block"><div class="feel-q">٣ · الوضوح</div><p class="lede" style="margin-bottom:.5rem">امتى شفت موقف بصفاء من غير تشويش؟</p><textarea data-key="s3-quality-clarity" placeholder="٢-٣ أسطر..."></textarea></div>
+        <div class="feel-block"><div class="feel-q">٤ · الرحمة</div><p class="lede" style="margin-bottom:.5rem">امتى حسيت برحمة تجاه حد، حتى لو غلط؟</p><textarea data-key="s3-quality-compassion" placeholder="٢-٣ أسطر..."></textarea></div>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 26 — true self qualities 2 -->
+    <section class="page" data-page="26" data-stage="المرحلة الثالثة · التمييز">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٨</span><span class="stage-name">التعرف على الذات الحقيقية — تكملة</span></div>
+        <div class="feel-block"><div class="feel-q">٥ · الثقة</div><p class="lede" style="margin-bottom:.5rem">امتى وثقت في نفسك أو في الحياة من غير دليل؟</p><textarea data-key="s3-quality-trust" placeholder="٢-٣ أسطر..."></textarea></div>
+        <div class="feel-block"><div class="feel-q">٦ · الإبداع</div><p class="lede" style="margin-bottom:.5rem">امتى لقيت حل مش متوقع لمشكلة؟</p><textarea data-key="s3-quality-creativity" placeholder="٢-٣ أسطر..."></textarea></div>
+        <div class="feel-block"><div class="feel-q">٧ · الشجاعة</div><p class="lede" style="margin-bottom:.5rem">امتى عملت حاجة رغم الخوف؟</p><textarea data-key="s3-quality-courage" placeholder="٢-٣ أسطر..."></textarea></div>
+        <div class="feel-block"><div class="feel-q">٨ · التواصل</div><p class="lede" style="margin-bottom:.5rem">امتى حسيت بارتباط حقيقي مع حد أو حاجة؟</p><textarea data-key="s3-quality-connection" placeholder="٢-٣ أسطر..."></textarea></div>
+        <hr class="divider">
+        <label class="field-label">مساحة حرة — اكتب أي حاجة حسيتها أثناء الإجابة على السكشن ده قبل ما تكمل</label>
+        <textarea data-key="s3-free2" style="min-height:6rem"></textarea>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 27 — compare table -->
+    <section class="page" data-page="27" data-stage="المرحلة الثالثة · التمييز">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٩</span><span class="stage-name">جدول المقارنة</span></div>
+        <h2 class="page-title">جدول المقارنة</h2>
+        <p class="lede">مفيش أسئلة هنا، بس جدول بيحط الجزء الحامي والذات الحقيقية جنب بعض، عشان تشوف الفرق بوضوح.</p>
+        <div class="compare-grid">
+          <div>
+            <div class="compare-head protector">الجزء الحامي (السلوك المؤذي)</div>
+            <textarea data-key="s3-compare-protector" style="min-height:9rem" placeholder="اكتب هنا..."></textarea>
+          </div>
+          <div>
+            <div class="compare-head trueself">الذات الحقيقية</div>
+            <textarea data-key="s3-compare-trueself" style="min-height:9rem" placeholder="اكتب هنا..."></textarea>
+          </div>
+        </div>
+        <hr class="divider">
+        <label class="field-label">رسالة حب من الذات الحقيقية للجزء الحامي</label>
+        <textarea data-key="s3-love-letter" style="min-height:7rem"></textarea>
+        <hr class="divider">
+        <label class="field-label">مساحة حرة — اكتب أي حاجة حسيتها وانت بتقارن بين الاتنين قبل ما تقفل الصفحة</label>
+        <textarea data-key="s3-free3" style="min-height:6rem"></textarea>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 28 — STAGE 3 REFLECTION -->
+    <section class="page" data-page="28" data-stage="المرحلة الثالثة · التمييز">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">وقفة</span><span class="stage-name">خد لحظة، وتنفس · قبل ما تدخل مرحلة التقبل</span></div>
+        <h2 class="page-title">إحساسك بعد المرحلة</h2>
+        <div class="q-block"><span class="qnum">؟</span><span class="q-text">دلوقتي وانت قادر تفّرق بين "الجزء الحامي" وذاتك الحقيقية، إيه اللي حابب تاخده معاك؟</span></div>
+        <div class="q-body"><textarea data-key="s3-refl-takeaway"></textarea></div>
+
+        <hr class="divider">
+        <h3 class="page-title" style="font-size:1.2rem">تمرين الإفراغ</h3>
+        <p class="body-text">اكتب حكم قاسي كان بيوجهه الجزء الحامي بتاعك لنفسك، وحاسس إنه مش بيمثل ذاتك الحقيقية. الجزء اللي كان بيقول الكلام ده كان بيحاول يحميك، مش يحاربك — وإنت مش محتاج الحماية دي بنفس الشكل دلوقتي.</p>
+        <textarea data-key="s3-release-belief" placeholder="اكتب الحكم اللي عايز تتحرر منه..."></textarea>
+        <button class="btn gold" style="margin-top:.7rem" id="burn3Btn">🔥 حرّق الورقة</button>
+        <div id="released3Badge"></div>
+
+        <hr class="divider">
+        <div class="q-block"><span class="qnum">؟</span><span class="q-text">إيه اللي حسّيته لما شفت الفرق بين الاتنين بوضوح لأول مرة؟</span></div>
+        <div class="q-body"><textarea data-key="s3-refl-closing"></textarea></div>
+
+        <hr class="divider">
+        <div class="petal-progress">
+          <svg class="petal-svg" viewBox="0 0 100 100"><g id="petalGroup3"></g></svg>
+          <p class="petal-caption">بتلة ٣ من ٥ — مرحلة التمييز</p>
+          <button class="btn outline" id="activatePetal3">فعّل البتلة — اعتبرت المرحلة اتقفلت</button>
+        </div>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 29 — STAGE 4 intro -->
+    <section class="page" data-page="29" data-stage="المرحلة الرابعة · التقبل والرحمة">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٤</span><span class="stage-name">المرحلة الرابعة — التقبل والرحمة · أسبوع ٨-١٠</span></div>
+        <h2 class="page-title">إيه اللي بيحصل لما تسيب المقاومة؟</h2>
+        <p class="body-text">بعد ما بقيت تقدر تفّرق بين الجزء الحامي وذاتك الحقيقية في مرحلة التمييز، جت مرحلة التقبل والرحمة عشان تتعلم تحضن الاتنين بدل ما تحارب حاجة فيهم — مش إنك تنتصر على جزء منك، لكن إنك تسيب المقاومة وتثق إنك آمن.</p>
+
+        <h3 class="page-title" style="font-size:1.1rem">إيه هو التقبل؟</h3>
+        <p class="body-text">التقبل مش معناه الاستسلام أو الرضا بالأذى. هو إنك توقف الحرب الداخلية مع اللي حاسس بيه دلوقتي، عشان تقدر تتحرك بيه بدل ما تتجمد وانت بتحاربه.</p>
+        <p class="lede" style="font-size:.78rem">(مبني على Acceptance and Commitment Therapy — Steven Hayes)</p>
+
+        <h3 class="page-title" style="font-size:1.1rem; margin-top:1rem">الرحمة بالذات إيه؟</h3>
+        <p class="body-text">مش دلع ولا تبرير للسلوك. هي إنك تعامل نفسك بنفس اللطف اللي هتعامل بيه حد بتحبه لو مرّ بنفس التجربة — وده اللي بيخليك تقدر تتغير من غير ما تكسر نفسك الأول.</p>
+        <p class="lede" style="font-size:.78rem">(مبني على أبحاث الرحمة الذاتية — Kristin Neff)</p>
+
+        <div class="callout">
+          <h4 style="margin:0 0 .5rem; font-size:.92rem; color:var(--sage)">مثال العوم</h4>
+          <p class="body-text" style="margin:0">فاكر لما كنت بتتعلم تعوم؟ أكتر حاجة غريبة في العوم إن اللي بيحارب الميه وبيشد جسمه، بيغرق. لكن اللي بيسيب جسمه يرتاح ويثق إن الميه هتحمله، بيطفو من غير ما يعمل أي مجهود. التقبل شبه كده بالظبط: مش إنك تحارب اللي جواك، هو إنك تسيب نفسك وتثق إنك مش هتغرق.</p>
+        </div>
+        <div class="callout gold">
+          <h4 style="margin:0 0 .5rem; font-size:.92rem; color:var(--gold)">مثال المقاومة: العوم ضد التيار</h4>
+          <p class="body-text" style="margin:0">لو حد وقف في نهر أو تيار قوي وحاول يعوم عكس اتجاهه، هيلاقي نفسه بيستهلك مجهود ضخم وهو بالكاد بيتحرك. ده بالظبط اللي بيحصل لما تحس بمقاومة أو رفض لموقف أو سلوك أو شعور موجود بالفعل: كل طاقتك بتروح في محاربة حاجة موجودة أصلاً، بدل ما تتوجه لحاجة تقدر فعلاً تغيّرها.</p>
+        </div>
+        <p class="lede">السكاشن الجاية هتاخدك في رحلة تقبل ورحمة أعمق مع نفسك، خطوة خطوة.</p>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 30 — meaning of acceptance / light visualization -->
+    <section class="page" data-page="30" data-stage="المرحلة الرابعة · التقبل والرحمة">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">١٠</span><span class="stage-name">معنى التقبل</span></div>
+        <h2 class="page-title">معنى التقبل</h2>
+        <p class="lede">قبل ما نبدأ، تنفس بس. خد نفس، وسيب نفسك تدخل في اللي جاي بهدوء. لو حسيت في أي لحظة إنك محتاج توقف وتعمل تابينج على أي نقطة من نقاطك المعتادة، اعمل كده براحتك — تقدر توقف هنا وترجع تاني أي وقت. تعالى نلعب لعبة بسيطة الأول، زي لما كنا صغيرين.</p>
+
+        <h3 class="page-title" style="font-size:1.1rem">قوتك الخارقة</h3>
+        <p class="body-text">تخيل إن عندك قوة خارقة دلوقتي — قوة واحدة بس، تختارها إنت. إيه هي؟ سيبها تبان قدامك في خيالك ثانية واحدة، من غير ضغط، من غير لازمة تكون منطقية. إحنا هنا بس بنلعب.</p>
+        <input type="text" data-key="s4-superpower" placeholder="قوتك الخارقة هي...">
+
+        <hr class="divider">
+        <h3 class="page-title" style="font-size:1.1rem">ماذا لو الألم ده اتحول لنور؟</h3>
+        <p class="body-text">تخيل معايا: الشعور السلبي اختفى شوية شوية، وظهر بدل منه نور أخضر وذهبي، حاسس فيه باكتفاء ودفا وأمان وحكمة.</p>
+        <div class="color-blob-wrap">
+          <div class="color-blob-shape" id="s4LightBlob"></div>
+          <p class="lede" style="margin:0">مساحة تلوين حرة — لوّن الشكل بالألوان اللي حاسس بيها دلوقتي</p>
+          <div class="swatch-row" id="s4SwatchRow">
+            <button class="swatch" data-color="#6f9c7a" style="background:#6f9c7a" aria-label="أخضر"></button>
+            <button class="swatch" data-color="#d4af6a" style="background:#d4af6a" aria-label="ذهبي"></button>
+            <button class="swatch" data-color="#7ea8c4" style="background:#7ea8c4" aria-label="أزرق"></button>
+            <button class="swatch" data-color="#c98a4b" style="background:#c98a4b" aria-label="برتقالي"></button>
+            <button class="swatch" data-color="#a85c52" style="background:#a85c52" aria-label="أحمر دافئ"></button>
+            <button class="swatch" data-color="#9c8fc9" style="background:#9c8fc9" aria-label="بنفسجي"></button>
+            <button class="swatch" data-color="#e8ddc4" style="background:#e8ddc4" aria-label="بيج"></button>
+          </div>
+        </div>
+
+        <p class="lede">لو قيّمت الإحساس ده دلوقتي من ١ لـ١٠، هيبقى كام؟ — دوّر دائرة حواليين رقمك</p>
+        <div class="chip-row rating-row" data-group="s4-rating" data-mode="single">
+          <button class="chip rating-chip" data-value="1">١</button><button class="chip rating-chip" data-value="2">٢</button>
+          <button class="chip rating-chip" data-value="3">٣</button><button class="chip rating-chip" data-value="4">٤</button>
+          <button class="chip rating-chip" data-value="5">٥</button><button class="chip rating-chip" data-value="6">٦</button>
+          <button class="chip rating-chip" data-value="7">٧</button><button class="chip rating-chip" data-value="8">٨</button>
+          <button class="chip rating-chip" data-value="9">٩</button><button class="chip rating-chip" data-value="10">١٠</button>
+        </div>
+
+        <p class="lede">طب، النور ده، هيكون أخضر وذهبي بس، ولا حاسس إن فيه لون أزرق كمان جواه؟</p>
+        <div class="chip-row" data-group="s4-blue-choice" data-mode="single" style="justify-content:center">
+          <button class="chip pair-chip" data-value="أخضر وذهبي بس">أخضر وذهبي بس</button>
+          <button class="chip pair-chip" data-value="فيه أزرق كمان">فيه أزرق كمان</button>
+        </div>
+        <p class="lede" style="text-align:center; margin-top:.6rem">خليك مع النور ده شوية، من غير ما تستعجل تسيبه.</p>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 31 — what if / what if not -->
+    <section class="page" data-page="31" data-stage="المرحلة الرابعة · التقبل والرحمة">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">١٠</span><span class="stage-name">معنى التقبل — تكملة</span></div>
+        <p class="lede">دلوقتي تعالى نلعب بالأسئلة دي، واحدة واحدة، من غير ما تستعجل:</p>
+
+        <h3 class="page-title" style="font-size:1.1rem">ماذا لو ما تقبّلتش؟</h3>
+        <p class="body-text">خد بالك — لو ما تقبلتش دلوقتي، مفيش حاجة هتتغير فعليًا. الألم هيفضل موجود بنفس القد. مفيش حد هيجبرك على حاجة. إنت آمن سواء تقبلت أو لأ.</p>
+
+        <h3 class="page-title" style="font-size:1.1rem; margin-top:1.2rem">طيب، ماذا لو تقبّلت؟</h3>
+        <p class="body-text">افرض إنك عايز حاجة معينة في حياتك — عربية جي كلاس مثلاً، أو أي حاجة بتحس إنها حقك. ماذا لو تقبّلت الموقف اللي إنت فيه دلوقتي، هل ده هيحسسك إنك واخد حقك أقل، ولا إن التقبل والحق حاجتين مختلفتين تمامًا ومتقدرش تاخد حقك أحسن وانت متقبل نفسك؟</p>
+
+        <hr class="divider">
+        <label class="field-label">لو حابب تكتب حاجة حسيتها هنا، اكتبها — مش شرط</label>
+        <textarea data-key="s4-free-p3" style="min-height:6rem"></textarea>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 32 — acceptance Q1-2 -->
+    <section class="page" data-page="32" data-stage="المرحلة الرابعة · التقبل والرحمة">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">١٠</span><span class="stage-name">معنى التقبل — تكملة</span></div>
+        <p class="lede">دلوقتي، وانت لسه في الحالة الهادية دي، جاوب على الأسئلة دي:</p>
+        <div class="q-block"><span class="qnum">١</span><span class="q-text">إيه اللي كان بيمنعك تتقبل نفسك أو موقفك قبل كده؟</span></div>
+        <div class="q-body"><textarea data-key="s4-q1-blocked"></textarea></div>
+        <div class="q-block"><span class="qnum">٢</span><span class="q-text">ليه تستحق تتقبل نفسك، حتى مع وجود الألم أو النقص؟</span></div>
+        <div class="q-body"><textarea data-key="s4-q2-deserve"></textarea></div>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 33 — acceptance Q3 + closing -->
+    <section class="page" data-page="33" data-stage="المرحلة الرابعة · التقبل والرحمة">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">١٠</span><span class="stage-name">معنى التقبل — تكملة</span></div>
+        <div class="q-block"><span class="qnum">٣</span><span class="q-text">لو النور اللي تخيلته فاكر إنه جزء منك أصلاً، إيه اللي ده بيقوله عن حقيقتك؟</span></div>
+        <div class="q-body"><textarea data-key="s4-q3-light-truth" style="min-height:8rem"></textarea></div>
+
+        <div class="callout gold" style="text-align:center; margin-top:1.2rem">
+          <p class="callout-quote" style="font-size:1rem">النور ده مكنش غريب عنك. هو كان جواك طول الوقت، بس كان مغطى بالمقاومة.<br>التقبل مش بيجيبلك حاجة جديدة — هو بس بيسيبك تشوف اللي كان موجود فيك من الأول.</p>
+        </div>
+
+        <hr class="divider">
+        <label class="field-label">مساحة حرة — اكتب أي حاجة حسيتها أثناء اللعبة دي قبل ما تكمل</label>
+        <textarea data-key="s4-free-p5" style="min-height:6rem"></textarea>
+        <div class="quick-item" style="margin-top:1rem">
+          <label class="field-label">وبالمناسبة، بلاش السؤال ده يفوتك: إيه أكتر حيوان بتحبه؟</label>
+          <input type="text" data-key="s4-fav-animal">
+        </div>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 34 — self-compassion 1 -->
+    <section class="page" data-page="34" data-stage="المرحلة الرابعة · التقبل والرحمة">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">١١</span><span class="stage-name">الرحمة بالذات</span></div>
+        <h2 class="page-title">الرحمة بالذات</h2>
+        <p class="lede">الرحمة بالذات مبنية على ٣ عناصر: اللطف مع نفسك، الإحساس إنك مش لوحدك في التجربة دي، واليقظة المتوازنة (إنك تحس بالألم من غير ما تغرق فيه أو تتجاهله).</p>
+
+        <h3 class="page-title" style="font-size:1.1rem">١. اللطف</h3>
+        <div class="q-body" style="margin-right:0"><textarea data-key="s4-kindness-q" placeholder="لو صاحبك جالك بنفس الموقف اللي إنت فيه، هتقوله إيه؟ ليه صعب تقول نفس الكلام لنفسك؟"></textarea></div>
+
+        <h3 class="page-title" style="font-size:1.1rem; margin-top:1.2rem">٢. الإنسانية المشتركة</h3>
+        <div class="q-body" style="margin-right:0"><textarea data-key="s4-common-humanity-q" placeholder="هل فيه ناس تانية غالبًا بتمر بنفس الإحساس ده، حتى لو ظروفهم مختلفة؟"></textarea></div>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 35 — self-compassion 2 -->
+    <section class="page" data-page="35" data-stage="المرحلة الرابعة · التقبل والرحمة">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">١١</span><span class="stage-name">الرحمة بالذات — تكملة</span></div>
+        <h3 class="page-title" style="font-size:1.1rem">٣. اليقظة المتوازنة</h3>
+        <div class="q-body" style="margin-right:0"><textarea data-key="s4-mindfulness-q" placeholder="تقدر تحس بالألم ده من غير ما يبتلعك أو تنكره خالص؟ إزاي حاسس إن ده ممكن يحصل؟"></textarea></div>
+
+        <hr class="divider">
+        <h3 class="page-title" style="font-size:1.1rem">تمرين "الحاضن المثالي"</h3>
+        <p class="body-text">١. اختار شخصية (حقيقية، من فيلم، أو تاريخية) بتحس إنها كانت هتحضنك وتفهمك من غير حكم.<br>٢. تخيلها قدامك دلوقتي.</p>
+        <label class="field-label">الشخصية اللي اخترتها</label>
+        <input type="text" data-key="s4-ideal-comforter-character" placeholder="اكتب اسمها هنا">
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 36 — self-compassion 3 -->
+    <section class="page" data-page="36" data-stage="المرحلة الرابعة · التقبل والرحمة">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">١١</span><span class="stage-name">الرحمة بالذات — تكملة</span></div>
+        <div class="q-block"><span class="qnum">٣</span><span class="q-text">اكتب إيه اللي كانت هتقوله لك شخصيتك المتخيّلة في اللحظة دي بالظبط</span></div>
+        <div class="q-body"><textarea data-key="s4-ideal-comforter-words" style="min-height:9rem"></textarea></div>
+        <p class="lede">✎ اقرأ الكلام ده بصوت عالي أو في نفسك، ووجّهه لنفسك زي ما هي موجهالك</p>
+        <hr class="divider">
+        <label class="field-label">مساحة حرة — اكتب أي حاجة حسيتها أثناء الإجابة على السكشن ده قبل ما تكمل</label>
+        <textarea data-key="s4-free-p8" style="min-height:6rem"></textarea>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 37 — inner critic -->
+    <section class="page" data-page="37" data-stage="المرحلة الرابعة · التقبل والرحمة">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">١٢</span><span class="stage-name">تحرير الحكم الذاتي</span></div>
+        <h2 class="page-title">تحرير الحكم الذاتي</h2>
+        <p class="lede">السكشن ده بيفصل بين الفكرة اللي بيقولها الصوت الناقد جواك، وبين الحقيقة الفعلية.</p>
+        <div class="q-block"><span class="qnum">١</span><span class="q-text">إيه بالظبط اللي بيقوله الصوت الناقد جواك دلوقتي عن نفسك أو عن السلوك اللي بتحاول تتغلب عليه؟ اكتبه بنفس كلماته، من غير تلطيف.</span></div>
+        <div class="q-body"><textarea data-key="s4-critic-voice" style="min-height:7rem"></textarea></div>
+        <div class="q-block"><span class="qnum">٢</span><span class="q-text">لو صديق بتحبه وبيدعمك قال نفس الكلام ده، لكن بطريقة داعمة مش قاسية، هيصيغه إزاي؟</span></div>
+        <div class="q-body"><textarea data-key="s4-critic-reframe" style="min-height:7rem"></textarea></div>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 38 — STAGE 4 REFLECTION -->
+    <section class="page" data-page="38" data-stage="المرحلة الرابعة · التقبل والرحمة">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">وقفة</span><span class="stage-name">خد لحظة، وتنفس · قبل ما تدخل مرحلة الالتزام والتغيير</span></div>
+        <h2 class="page-title">إحساسك بعد المرحلة</h2>
+        <div class="q-block"><span class="qnum">؟</span><span class="q-text">بعد رحلة التقبل والرحمة، إيه اللي حابب تاخده معاك لمرحلة الالتزام؟</span></div>
+        <div class="q-body"><textarea data-key="s4-refl-takeaway"></textarea></div>
+
+        <hr class="divider">
+        <h3 class="page-title" style="font-size:1.2rem">تمرين الإفراغ</h3>
+        <p class="body-text">اكتب معتقد بيقولك إنك مش تستحق التقبل أو الراحة، وحاسس إنه مش حقيقي. النور اللي شفته في مرحلة التقبل كان جواك طول الوقت — المعتقد ده مكنش بيوصف حقيقتك.</p>
+        <textarea data-key="s4-release-belief" placeholder="اكتب المعتقد اللي عايز تتحرر منه..."></textarea>
+        <button class="btn gold" style="margin-top:.7rem" id="burn4Btn">🔥 حرّق الورقة</button>
+        <div id="released4Badge"></div>
+
+        <hr class="divider">
+        <div class="q-block"><span class="qnum">؟</span><span class="q-text">إيه أكتر لحظة حسيت فيها برحمة بنفسك في المرحلة دي؟</span></div>
+        <div class="q-body"><textarea data-key="s4-refl-compassion-moment"></textarea></div>
+
+        <hr class="divider">
+        <div class="petal-progress">
+          <svg class="petal-svg" viewBox="0 0 100 100"><g id="petalGroup4"></g></svg>
+          <p class="petal-caption">بتلة ٤ من ٥ — دي آخر بتلة قبل ما الوردة تكتمل في مرحلة الالتزام</p>
+          <button class="btn outline" id="activatePetal4">فعّل البتلة — اعتبرت المرحلة اتقفلت</button>
+        </div>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 39 — STAGE 5 intro -->
+    <section class="page" data-page="39" data-stage="المرحلة الخامسة · الالتزام والتغيير">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">٠٥</span><span class="stage-name">المرحلة الخامسة — الالتزام والتغيير · أسبوع ١١+</span></div>
+        <h2 class="page-title">من التقبل إلى البناء المتدرج</h2>
+        <p class="body-text">بعد ما اتعلمت تتقبل نفسك وترحمها في مرحلة التقبل والرحمة، جت مرحلة الالتزام والتغيير عشان تبني على الأساس ده خطوات صغيرة وثابتة — مش قفزة كبيرة، لكن تدّرج حقيقي بيتراكم.</p>
+
+        <h3 class="page-title" style="font-size:1.1rem">مبدأ الانتصارات الصغيرة</h3>
+        <p class="body-text">التقدم بيتبني من سلسلة نجاحات صغيرة ملموسة، مش من قفزة ضخمة. كل خطوة صغيرة بتتم فعليًا بتعزز الدافع أكتر من هدف كبير بعيد.</p>
+        <p class="lede" style="font-size:.78rem">(مبني على Amabile &amp; Kramer, 2011)</p>
+
+        <h3 class="page-title" style="font-size:1.1rem; margin-top:1rem">الكفاءة الذاتية</h3>
+        <p class="body-text">ثقتك في قدرتك على التغيير مش بتيجي من قرار ضخم، هي بتتبنى من تكرار نجاحات صغيرة بتثبتلك إنك فعلاً قادر.</p>
+        <p class="lede" style="font-size:.78rem">(مبني على Bandura, 1977)</p>
+
+        <div class="callout">
+          <h4 style="margin:0 0 .5rem; font-size:.92rem; color:var(--sage)">مثال يوضح الفكرة</h4>
+          <p class="body-text" style="margin:0">لو حد عايز يجري ماراثون وهو ماشيش يجري خالص قبل كده، لو أول يوم طالب نفسه بـ٤٢ كيلو، هياخد قرار يستسلم بسرعة. لكن لو بدأ بـ١٠ دقايق مشي سريع كل يوم، وثبّتها كام يوم، وبعدين زوّد تدريجيًا — كل خطوة صغيرة بتبني ثقته إنه قادر، لحد ما يوصل فعليًا للمسافة الكبيرة.</p>
+        </div>
+        <p class="lede">السكاشن الجاية هتاخدك خطوة خطوة، مبنية على نفس المبدأ: صغيرة، ثابتة، وقابلة للتكرار.</p>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 40 — body first -->
+    <section class="page" data-page="40" data-stage="المرحلة الخامسة · الالتزام والتغيير">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">١٣</span><span class="stage-name">تدّرج البناء</span></div>
+        <h2 class="page-title">الجزء الأول: جسمك أولاً</h2>
+        <p class="lede">جسمك حمل معاك الرحلة دي كلها. خد لحظة تسأله هو محتاج إيه.</p>
+        <div class="quick-item">
+          <label class="field-label">أكتر جهاز في جسمك حاسس إنه بيتعب أو بيجيلك فيه أعراض متكررة (هضمي، دوري، عصبي، مناعي...)</label>
+          <input type="text" data-key="s5-body-system">
+        </div>
+        <div class="quick-item">
+          <label class="field-label">أكلة واحدة بسيطة ممكن تضيفها يوميًا تدعم الجهاز ده — أول إنجاز تلتزم بيه من دلوقتي</label>
+          <input type="text" data-key="s5-body-meal">
+        </div>
+        <div class="callout">
+          <p class="body-text" style="margin:0">تمرين تنفس واحد بسيط (زي تنفس الصندوق) لمدة دقيقة كل يوم. لو قادر تزود: تمرين تابينج على النقاط اللي اتعلمتها، ورياضة خفيفة (حتى ولو مشي ١٠ دقايق). مش شرط تعمل كل حاجة من أول يوم. ابدأ بحاجة واحدة، وثبّتها، قبل ما تضيف اللي بعدها. التدرج هنا أهم من الكمال.</p>
+        </div>
+        <label class="field-label">مساحة حرة — اكتب حاسس إزاي وانت بتاخد القرار ده لجسمك</label>
+        <textarea data-key="s5-free-p2" style="min-height:6rem"></textarea>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 41 — small joy -->
+    <section class="page" data-page="41" data-stage="المرحلة الخامسة · الالتزام والتغيير">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">١٣</span><span class="stage-name">تدّرج البناء — تكملة</span></div>
+        <h2 class="page-title">الجزء الثاني: البهجة الصغيرة</h2>
+        <p class="lede">البهجة مش لازم تيجي من حاجة كبيرة. أحيانًا أقل نسبة منها كفاية تبدأ بيها.</p>
+
+        <div class="quick-item"><label class="field-label">١. إيه أكتر حاجة بتتمناها دلوقتي؟</label><input type="text" data-key="s5-joy-q1"></div>
+        <div class="quick-item"><label class="field-label">٢. لو حققتها، هتحس بإيه بالظبط؟</label><input type="text" data-key="s5-joy-q2"></div>
+        <p class="lede">٣. لو قيّمت الإحساس ده من ١ لـ١٠، هيبقى كام؟</p>
+        <div class="chip-row rating-row" data-group="s5-joy-rating" data-mode="single">
+          <button class="chip rating-chip" data-value="1">١</button><button class="chip rating-chip" data-value="2">٢</button>
+          <button class="chip rating-chip" data-value="3">٣</button><button class="chip rating-chip" data-value="4">٤</button>
+          <button class="chip rating-chip" data-value="5">٥</button><button class="chip rating-chip" data-value="6">٦</button>
+          <button class="chip rating-chip" data-value="7">٧</button><button class="chip rating-chip" data-value="8">٨</button>
+          <button class="chip rating-chip" data-value="9">٩</button><button class="chip rating-chip" data-value="10">١٠</button>
+        </div>
+        <div class="quick-item" style="margin-top:1rem"><label class="field-label">٤. إيه أقل حاجة تقدر تعملها دلوقتي، تدّيك ولو ١ من ١٠ من نفس الإحساس ده؟</label><input type="text" data-key="s5-joy-q4"></div>
+
+        <hr class="divider">
+        <h3 class="page-title" style="font-size:1.05rem">جدول ممارسة البهجة اليومية</h3>
+        <div class="table-wrap"><table class="day-table">
+          <thead><tr><th>اليوم</th><th>الحاجة الصغيرة اللي عملتها</th><th>حسيت بإيه بعدها</th></tr></thead>
+          <tbody id="joyTableBody"></tbody>
+        </table></div>
+
+        <label class="field-label">مساحة حرة — اكتب أي حاجة حسيتها وانت بتدور على البهجة الصغيرة دي</label>
+        <textarea data-key="s5-free-p3" style="min-height:5rem"></textarea>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 42 — crowning value -->
+    <section class="page" data-page="42" data-stage="المرحلة الخامسة · الالتزام والتغيير">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">١٣</span><span class="stage-name">تدّرج البناء — تكملة</span></div>
+        <h2 class="page-title">الجزء الثالث: بأي قيمة تحب تتوّج؟</h2>
+        <p class="body-text">القيم الإيجابية كتير وحلوة، بس مش كل حد شجاع لازم يبقى كمان حكيم، أو شريف، أو قائد. كل واحد فينا بيحمل مزيج مختلف، وده طبيعي.</p>
+        <p class="lede" style="font-size:.78rem">(مبني على مفهوم "الذات المحتملة" — Possible Selves — Markus &amp; Nurius, 1986)</p>
+
+        <div class="q-block"><span class="qnum">١</span><span class="q-text">بأي قيمة واحدة تحب تتوّج بيها أكتر حاجة دلوقتي؟</span></div>
+        <div class="q-body"><input type="text" data-key="s5-value-choice"></div>
+
+        <div class="q-block" style="margin-top:1rem"><span class="qnum">٢</span><span class="q-text">تخيل نسخة منك متوّجة بالفعل بالقيمة دي. هي بتعمل إيه في يوم عادي؟ بتتصرف إزاي مع نفسها ومع اللي حواليها؟</span></div>
+        <div class="q-body"><textarea data-key="s5-value-vision" style="min-height:8rem"></textarea></div>
+        <p class="lede">النسخة دي مش لازم تتحدد النهاردة خالص. ارجع لها كل ما حبيت، وضيفلها تفاصيل جديدة كل مرة — هي بتكبر معاك.</p>
+
+        <hr class="divider">
+        <label class="field-label">مساحة حرة</label>
+        <textarea data-key="s5-free-p4" style="min-height:5rem"></textarea>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 43 — small step -->
+    <section class="page" data-page="43" data-stage="المرحلة الخامسة · الالتزام والتغيير">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">١٤</span><span class="stage-name">خطوة صغيرة والالتزام</span></div>
+        <h2 class="page-title">خطوة صغيرة والالتزام</h2>
+        <p class="lede">وصلت لهنا وانت شايل كل اللي فات — الوعي، الجذور، التمييز، والتقبل. الخطوة الجاية مش بداية جديدة، هي امتداد طبيعي لكل اللي عملته. مش محتاج تغيّر كل حاجة النهارده. محتاج بس خطوة واحدة، صغيرة وحقيقية، تقدر تعملها فعلاً.</p>
+
+        <div class="q-block"><span class="qnum">١</span><span class="q-text">إيه أصغر خطوة ممكن تعملها الأسبوع ده، وتقربك من القيمة اللي اخترتها في السكشن اللي فات؟</span></div>
+        <div class="q-body"><textarea data-key="s5-step-q1"></textarea></div>
+        <div class="q-block"><span class="qnum">٢</span><span class="q-text">ليه الخطوة دي بالذات؟ إيه اللي هتحسسك بيه لو عملتها؟</span></div>
+        <div class="q-body"><textarea data-key="s5-step-q2"></textarea></div>
+
+        <div class="quick-item">
+          <label class="field-label">الخطوة الصغيرة هذا الأسبوع</label>
+          <input type="text" data-key="s5-step-this-week">
+        </div>
+
+        <hr class="divider">
+        <h3 class="page-title" style="font-size:1.05rem">جدول متابعة أسبوعي</h3>
+        <div class="table-wrap"><table class="day-table">
+          <thead><tr><th>اليوم</th><th>عملتها؟</th><th>ملاحظة سريعة</th></tr></thead>
+          <tbody id="weekTableBody"></tbody>
+        </table></div>
+        <p class="lede">لو لقيت نفسك فوّت يوم أو اتنين: ده مش فشل، وده مش دليل إنك رجعت للخلف. الالتزام الحقيقي مش إنك تعمل الخطوة كل يوم من غير ما تقع، هو إنك ترجع تاني حتى بعد ما تقع. رجوعك ده هو الالتزام نفسه.</p>
+        <label class="field-label">مساحة حرة — اكتب أي حاجة حسيتها وانت بتلتزم بالخطوة دي قبل ما تكمل</label>
+        <textarea data-key="s5-free-p5" style="min-height:5rem"></textarea>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 44 — weekly check-in log -->
+    <section class="page" data-page="44" data-stage="المرحلة الخامسة · الالتزام والتغيير">
+      <div class="card">
+        <div class="eyebrow"><span class="tag">١٥</span><span class="stage-name">المتابعة الأسبوعية</span></div>
+        <h2 class="page-title">المتابعة الأسبوعية</h2>
+        <p class="lede">السكشن ده مش سؤال بيتغير كل أسبوع، هو نفس السؤال بيتكرر أسبوعيًا، عشان العادة تترسخ بالتكرار مش بالتغيير المستمر. الهدف مش إنك تلاقي حاجة كبيرة كل مرة — أصغر ملاحظة كفاية. ارجع للصفحة دي كل أسبوع من الرحلة (حتى أسبوع ١٢) وسجّل ملاحظة جديدة.</p>
+
+        <div class="log-form">
+          <div class="log-form-row">
+            <div style="flex:none">
+              <label class="field-label">الأسبوع رقم</label>
+              <input type="number" id="logWeekInput" min="1" max="12" placeholder="١">
+            </div>
+            <div style="flex:1">
+              <label class="field-label">التزمت بالخطوة الصغيرة؟</label>
+              <div class="chip-row" data-group="s5-log-status-draft" data-mode="single">
+                <button class="chip" data-value="نعم">نعم</button>
+                <button class="chip" data-value="جزئيًا">جزئيًا</button>
+                <button class="chip" data-value="لا">لا</button>
+              </div>
+            </div>
+          </div>
+          <label class="field-label">إيه اللي لاحظته على نفسك الأسبوع ده، حتى لو حاجة بسيطة؟ (٣-٤ أسطر كفاية)</label>
+          <textarea id="logNoteInput" style="min-height:4.5rem"></textarea>
+          <label class="field-label" style="margin-top:.6rem">سؤال إضافي — أسبوع ٦ بس (منتصف الرحلة): من أول ما بدأت لحد دلوقتي، إيه حاجة حسيت إنها اتغيرت في نظرتك لنفسك؟ (اختياري)</label>
+          <textarea id="logMidpointInput" style="min-height:3.5rem"></textarea>
+          <button class="btn wide" id="logAddBtn" style="margin-top:.7rem">حفظ ملاحظة الأسبوع</button>
+        </div>
+
+        <div id="weeklyLogList"></div>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+    <!-- PAGE 45 — FINAL -->
+    <section class="page" data-page="45" data-stage="اكتملت الرحلة">
+      <div class="card cover-card">
+        <div class="bloom-wrap">
+          <svg class="bloom-svg" viewBox="0 0 100 100"><g id="petalGroup5"></g></svg>
+        </div>
+        <h2 class="page-title" style="text-align:center">خلصت رحلتك مع True Self</h2>
+        <p class="lede" style="max-width:34rem; margin:0 auto 1.4rem">من الوعي، للجذور، للتمييز، للتقبل، ولحد الالتزام — عدّيت بمراحل خمسة كل واحدة بنت على اللي قبلها. اللي وصلت له دلوقتي مش نهاية، هو أساس تقدر تكمل تبني عليه.</p>
+
+        <div style="text-align:right">
+          <div class="q-block"><span class="qnum">؟</span><span class="q-text">بعد كل الرحلة دي — إيه اللي حاصل عليه دلوقتي وملقتش نفسك بيه وانت بدأت؟</span></div>
+          <div class="q-body"><textarea data-key="s5-final-gained" style="min-height:7rem"></textarea></div>
+
+          <hr class="divider">
+          <h3 class="page-title" style="font-size:1.1rem">شكر لنفسك</h3>
+          <label class="field-label">اكتب حاجة واحدة تشكر نفسك عليها من الرحلة دي كلها</label>
+          <textarea data-key="s5-final-thanks" style="min-height:5rem"></textarea>
+
+          <hr class="divider">
+          <h3 class="page-title" style="font-size:1.1rem">قبل ما تقفل الكتاب ده</h3>
+          <label class="field-label">لو كان فيه نسخة منك هتبدأ الرحلة دي دلوقتي، إيه كنت هتقولها؟</label>
+          <textarea data-key="s5-final-message" style="min-height:6rem"></textarea>
+
+          <hr class="divider">
+          <label class="field-label">(اختياري) شارك أكتر لحظة حسيت فيها إنك اتغيرت فعلاً خلال الرحلة — ملاحظة شخصية ليك انت</label>
+          <input type="text" data-key="s5-final-share">
+        </div>
+
+        <div class="petal-progress" style="margin-top:1.4rem">
+          <button class="btn gold" id="activatePetal5">فعّل البتلة الخامسة — الوردة اكتملت 🌸</button>
+        </div>
+        <p class="petal-caption" style="margin-top:.6rem">كل الخمس بتلات اتلونت — الوردة اكتملت</p>
+        <div class="footer-mark"><b>TRUE SELF</b> · تزكية</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="navbar">
+    <button class="nav-btn" id="prevBtn">→ السابق</button>
+    <div class="nav-mid" id="pageLabelBottom">١ / ٢٠</div>
+    <button class="nav-btn" id="nextBtn">التالي ←</button>
   </footer>
+
+  <div class="burn-overlay" id="burnOverlay">
+    <div class="burn-card">
+      <p class="burn-text" id="burnText"></p>
+      <div class="burn-embers" id="burnEmbers"></div>
+      <p class="burn-done" id="burnDone">تم ✓ — إنت شايفه، وده كل اللي محتاجه دلوقتي.</p>
+    </div>
+  </div>
 </div>
 
+<script>
+(function(){
+  "use strict";
+  document.documentElement.setAttribute('dir','rtl');
+  document.documentElement.setAttribute('lang','ar');
+
+  var PREFIX = 'trueself_';
+  var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
+  var TOTAL = pages.length;
+  var current = 0;
+
+  var arabicNums = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+  function toArabicNum(n){
+    return String(n).split('').map(function(d){ return /[0-9]/.test(d) ? arabicNums[+d] : d; }).join('');
+  }
+
+  function ls(){
+    try{ return window.localStorage; } catch(e){ return null; }
+  }
+  var store = ls();
+  function save(key, val){
+    if(!store) return;
+    try{ store.setItem(PREFIX + key, val); pulseSaved(); } catch(e){}
+  }
+  function load(key){
+    if(!store) return null;
+    try{ return store.getItem(PREFIX + key); } catch(e){ return null; }
+  }
+  function saveJSON(key, obj){ save(key, JSON.stringify(obj)); }
+  function loadJSON(key, fallback){
+    var raw = load(key);
+    if(!raw) return fallback;
+    try{ return JSON.parse(raw); } catch(e){ return fallback; }
+  }
+
+  var saveDot = document.getElementById('saveDot');
+  var saveTimer;
+  function pulseSaved(){
+    if(!saveDot) return;
+    saveDot.classList.add('saved');
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function(){ saveDot.classList.remove('saved'); }, 700);
+  }
+
+  /* ---------- autosave text fields ---------- */
+  var fields = document.querySelectorAll('[data-key]');
+  fields.forEach(function(el){
+    var key = el.getAttribute('data-key');
+    var saved = load(key);
+    if(saved !== null){ el.value = saved; }
+    var evt = (el.tagName === 'INPUT' && el.type === 'date') ? 'change' : 'input';
+    el.addEventListener(evt, function(){ save(key, el.value); });
+  });
+
+  /* ---------- chips ---------- */
+  var chipGroups = document.querySelectorAll('.chip-row[data-group]');
+  chipGroups.forEach(function(group){
+    var key = group.getAttribute('data-group');
+    var mode = group.getAttribute('data-mode') || 'multi';
+    var selected = loadJSON(key, []);
+    var chips = group.querySelectorAll('.chip');
+    chips.forEach(function(chip){
+      var val = chip.getAttribute('data-value');
+      if(selected.indexOf(val) > -1) chip.classList.add('selected');
+      chip.addEventListener('click', function(){
+        if(mode === 'single'){
+          chips.forEach(function(c){ c.classList.remove('selected'); });
+          chip.classList.add('selected');
+          selected = [val];
+        } else {
+          if(chip.classList.contains('selected')){
+            chip.classList.remove('selected');
+            selected = selected.filter(function(v){ return v !== val; });
+          } else {
+            chip.classList.add('selected');
+            selected.push(val);
+          }
+        }
+        saveJSON(key, selected);
+      });
+    });
+  });
+
+  /* ---------- petals ---------- */
+  var PETAL_KEYS = ['petal1','petal2','petal3','petal4','petal5'];
+  function petalStates(){
+    return PETAL_KEYS.map(function(k){ return load(k) === 'true'; });
+  }
+  function buildPetals(groupId, states){
+    var g = document.getElementById(groupId);
+    if(!g) return;
+    g.innerHTML = '';
+    var ns = 'http://www.w3.org/2000/svg';
+    for(var i=0;i<5;i++){
+      var angle = i*72;
+      var isFilled = states[i];
+      var el = document.createElementNS(ns,'ellipse');
+      el.setAttribute('cx','50'); el.setAttribute('cy','30');
+      el.setAttribute('rx','13'); el.setAttribute('ry','22');
+      el.setAttribute('transform','rotate('+angle+' 50 50)');
+      el.setAttribute('fill', isFilled ? 'var(--sage)' : 'var(--border)');
+      g.appendChild(el);
+    }
+    var center = document.createElementNS(ns,'circle');
+    center.setAttribute('cx','50'); center.setAttribute('cy','50'); center.setAttribute('r','8');
+    center.setAttribute('fill','var(--gold)');
+    g.appendChild(center);
+  }
+  var PETAL_GROUP_IDS = ['petalGroup1','petalGroup2','petalGroup3','petalGroup4','petalGroup5'];
+  function refreshPetals(){
+    var states = petalStates();
+    PETAL_GROUP_IDS.forEach(function(id){ buildPetals(id, states); });
+    var bloom = document.querySelector('.bloom-svg');
+    if(bloom){ bloom.classList.toggle('show', states[4]); }
+  }
+  function wirePetalBtn(n){
+    var btn = document.getElementById('activatePetal'+n);
+    if(!btn) return;
+    var key = 'petal'+n;
+    function refreshLabel(){
+      var on = load(key) === 'true';
+      if(n === 5){
+        btn.textContent = on ? '✓ الوردة اكتملت 🌸' : 'فعّل البتلة الخامسة — الوردة اكتملت 🌸';
+      } else {
+        btn.textContent = on ? '✓ البتلة اتفعّلت' : 'فعّل البتلة — اعتبرت المرحلة اتقفلت';
+      }
+    }
+    btn.addEventListener('click', function(){
+      save(key, load(key) === 'true' ? 'false' : 'true');
+      refreshPetals();
+      refreshLabel();
+    });
+    refreshLabel();
+  }
+  for(var pn=1; pn<=5; pn++){ wirePetalBtn(pn); }
+  refreshPetals();
+
+  /* ---------- burn / release exercise ---------- */
+  function wireBurn(btnId, textareaKey, badgeId){
+    var btn = document.getElementById(btnId);
+    if(!btn) return;
+    btn.addEventListener('click', function(){
+      var ta = document.querySelector('textarea[data-key="'+textareaKey+'"]');
+      var text = ta ? ta.value.trim() : '';
+      if(!text){ ta && ta.focus(); return; }
+      var overlay = document.getElementById('burnOverlay');
+      var burnText = document.getElementById('burnText');
+      var embers = document.getElementById('burnEmbers');
+      var done = document.getElementById('burnDone');
+      burnText.textContent = text;
+      burnText.classList.remove('burning');
+      done.classList.remove('show');
+      embers.innerHTML = '';
+      embers.classList.remove('on');
+      for(var i=0;i<9;i++){
+        var s = document.createElement('span');
+        s.className = 'ember'; s.textContent = ['✦','·','⋆','∘'][i%4];
+        s.style.right = (10 + Math.random()*80) + '%';
+        s.style.setProperty('--dx', (Math.random()*40-20)+'px');
+        s.style.animationDelay = (Math.random()*.4)+'s';
+        embers.appendChild(s);
+      }
+      overlay.classList.add('open');
+      requestAnimationFrame(function(){
+        setTimeout(function(){
+          burnText.classList.add('burning');
+          embers.classList.add('on');
+        }, 150);
+      });
+      setTimeout(function(){
+        done.classList.add('show');
+        var count = parseInt(load('released-count') || '0', 10) + 1;
+        save('released-count', String(count));
+        renderBadge(badgeId, count);
+      }, 1300);
+      setTimeout(function(){
+        overlay.classList.remove('open');
+        if(ta){ ta.value=''; save(textareaKey,''); }
+      }, 2600);
+    });
+  }
+  function renderBadge(badgeId, count){
+    var el = document.getElementById(badgeId);
+    if(!el) return;
+    el.innerHTML = '<span class="released-badge">✓ عدد المعتقدات اللي حرقتها لحد دلوقتي: '+toArabicNum(count)+'</span>';
+  }
+  (function initBadges(){
+    var c = parseInt(load('released-count') || '0', 10);
+    if(c>0){
+      ['released1Badge','released2Badge','released3Badge','released4Badge'].forEach(function(id){ renderBadge(id, c); });
+    }
+  })();
+  wireBurn('burn1Btn','release1-belief','released1Badge');
+  wireBurn('burn2Btn','release2-belief','released2Badge');
+  wireBurn('burn3Btn','s3-release-belief','released3Badge');
+  wireBurn('burn4Btn','s4-release-belief','released4Badge');
+
+  /* ---------- breathing box ---------- */
+  var breatheDot = document.getElementById('breatheDot');
+  var breatheLabel = document.getElementById('breatheLabel');
+  var breatheToggle = document.getElementById('breatheToggle');
+  var breatheAddCycle = document.getElementById('breatheAddCycle');
+  var breatheCountNum = document.getElementById('breatheCountNum');
+  var breathing = false, breatheTimer, breatheStart;
+  var phases = ['شهيق ٤','احبس ٤','زفير ٤','احبس ٤'];
+  function updateBreatheCount(){
+    if(breatheCountNum) breatheCountNum.textContent = toArabicNum(load('breathe-count') || '0');
+  }
+  updateBreatheCount();
+  function tickPhase(){
+    var elapsed = (performance.now() - breatheStart) % 16000;
+    var idx = Math.floor(elapsed / 4000);
+    breatheLabel.textContent = phases[idx];
+  }
+  if(breatheToggle){
+    breatheToggle.addEventListener('click', function(){
+      breathing = !breathing;
+      if(breathing){
+        breatheDot.style.animationPlayState = 'running';
+        breatheStart = performance.now();
+        breatheTimer = setInterval(tickPhase, 200);
+        breatheToggle.textContent = 'إيقاف';
+      } else {
+        breatheDot.style.animationPlayState = 'paused';
+        clearInterval(breatheTimer);
+        breatheLabel.textContent = 'اضغط ابدأ';
+      }
+    });
+  }
+  if(breatheAddCycle){
+    breatheAddCycle.addEventListener('click', function(){
+      var c = parseInt(load('breathe-count') || '0', 10) + 1;
+      save('breathe-count', String(c));
+      updateBreatheCount();
+    });
+  }
+
+  /* ---------- timeline ---------- */
+  (function(){
+    var track = document.getElementById('timelineTrack');
+    if(!track) return;
+    var form = document.getElementById('timelineForm');
+    var input = document.getElementById('timelineInput');
+    var addBtn = document.getElementById('timelineAdd');
+    var cancelBtn = document.getElementById('timelineCancel');
+    var pending = null;
+    var points = loadJSON('timeline-points', []);
+
+    function render(){
+      Array.prototype.slice.call(track.querySelectorAll('.timeline-point')).forEach(function(n){ n.remove(); });
+      points.forEach(function(p, idx){
+        var el = document.createElement('div');
+        el.className = 'timeline-point';
+        el.style.right = p.pos + '%';
+        el.innerHTML = '<span class="lbl">'+escapeHtml(p.label)+'</span><span class="dot"></span>';
+        el.title = 'دوس لمسح المحطة';
+        el.addEventListener('click', function(ev){
+          ev.stopPropagation();
+          points.splice(idx,1);
+          saveJSON('timeline-points', points);
+          render();
+        });
+        track.appendChild(el);
+      });
+    }
+    function escapeHtml(s){
+      var d = document.createElement('div'); d.textContent = s; return d.innerHTML;
+    }
+    track.addEventListener('click', function(ev){
+      if(ev.target !== track) return;
+      var rect = track.getBoundingClientRect();
+      var pctFromRight = ((rect.right - ev.clientX) / rect.width) * 100;
+      pctFromRight = Math.max(3, Math.min(97, pctFromRight));
+      pending = pctFromRight;
+      form.hidden = false;
+      input.value = '';
+      input.focus();
+    });
+    addBtn.addEventListener('click', function(){
+      var label = input.value.trim();
+      if(!label || pending===null) { form.hidden = true; return; }
+      points.push({ pos: pending, label: label });
+      saveJSON('timeline-points', points);
+      pending = null;
+      form.hidden = true;
+      render();
+    });
+    cancelBtn.addEventListener('click', function(){ form.hidden = true; pending = null; });
+    render();
+  })();
+
+  /* ---------- color blob (stage 4) ---------- */
+  (function(){
+    var blob = document.getElementById('s4LightBlob');
+    var row = document.getElementById('s4SwatchRow');
+    if(!blob || !row) return;
+    var key = 's4-light-color';
+    var swatches = row.querySelectorAll('.swatch');
+    var saved = load(key);
+    if(saved){
+      blob.style.background = saved;
+      swatches.forEach(function(s){ s.classList.toggle('active', s.getAttribute('data-color') === saved); });
+    }
+    swatches.forEach(function(s){
+      s.addEventListener('click', function(){
+        var color = s.getAttribute('data-color');
+        blob.style.background = color;
+        swatches.forEach(function(x){ x.classList.remove('active'); });
+        s.classList.add('active');
+        save(key, color);
+      });
+    });
+  })();
+
+  /* ---------- day tables (stage 5) ---------- */
+  function buildDayTable(tbodyId, rowKeyPrefix, cols){
+    var tbody = document.getElementById(tbodyId);
+    if(!tbody) return;
+    for(var d=1; d<=7; d++){
+      var tr = document.createElement('tr');
+      var tdNum = document.createElement('td');
+      tdNum.className = 'daynum';
+      tdNum.textContent = toArabicNum(d);
+      tr.appendChild(tdNum);
+      cols.forEach(function(col){
+        var td = document.createElement('td');
+        if(col === 'status'){
+          var wrap = document.createElement('div');
+          wrap.className = 'day-status-row chip-row';
+          wrap.setAttribute('data-group', rowKeyPrefix + '-' + d + '-status');
+          wrap.setAttribute('data-mode', 'single');
+          ['✓','−','✗'].forEach(function(sym){
+            var b = document.createElement('button');
+            b.className = 'chip'; b.setAttribute('data-value', sym); b.textContent = sym;
+            wrap.appendChild(b);
+          });
+          td.appendChild(wrap);
+        } else {
+          var input = document.createElement('input');
+          input.type = 'text';
+          input.setAttribute('data-key', rowKeyPrefix + '-' + d + '-' + col);
+          td.appendChild(input);
+        }
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    }
+  }
+  buildDayTable('joyTableBody', 's5-joy', ['what','felt']);
+  buildDayTable('weekTableBody', 's5-week1', ['status','note']);
+  /* wire autosave + chip behavior for elements just created dynamically */
+  (function rebindDynamic(){
+    document.querySelectorAll('#joyTableBody [data-key], #weekTableBody [data-key]').forEach(function(el){
+      var key = el.getAttribute('data-key');
+      var saved = load(key);
+      if(saved !== null){ el.value = saved; }
+      el.addEventListener('input', function(){ save(key, el.value); });
+    });
+    document.querySelectorAll('#weekTableBody .chip-row[data-group]').forEach(function(group){
+      var key = group.getAttribute('data-group');
+      var selected = loadJSON(key, []);
+      var chips = group.querySelectorAll('.chip');
+      chips.forEach(function(chip){
+        var val = chip.getAttribute('data-value');
+        if(selected.indexOf(val) > -1) chip.classList.add('selected');
+        chip.addEventListener('click', function(){
+          chips.forEach(function(c){ c.classList.remove('selected'); });
+          chip.classList.add('selected');
+          saveJSON(key, [val]);
+        });
+      });
+    });
+  })();
+
+  /* ---------- weekly check-in log (stage 5) ---------- */
+  (function(){
+    var addBtn = document.getElementById('logAddBtn');
+    if(!addBtn) return;
+    var weekInput = document.getElementById('logWeekInput');
+    var noteInput = document.getElementById('logNoteInput');
+    var midInput = document.getElementById('logMidpointInput');
+    var listEl = document.getElementById('weeklyLogList');
+    var statusGroup = document.querySelector('.chip-row[data-group="s5-log-status-draft"]');
+    var entries = loadJSON('s5-weekly-log', []);
+
+    function renderList(){
+      if(!entries.length){
+        listEl.innerHTML = '<p class="weekly-log-empty">لسه مفيش ملاحظات مسجّلة. اكتب أول ملاحظة أسبوعية بتاعتك فوق.</p>';
+        return;
+      }
+      var sorted = entries.slice().sort(function(a,b){ return b.week - a.week; });
+      listEl.innerHTML = sorted.map(function(e){
+        var statusLabel = e.status || '—';
+        var mid = e.midpoint ? '<p class="body-text" style="margin:.5rem 0 0; font-size:.85rem; color:var(--gold)">🌗 ' + escapeHtml(e.midpoint) + '</p>' : '';
+        return '<div class="weekly-log-entry">' +
+          '<div class="wk-head"><span>الأسبوع ' + toArabicNum(e.week) + '</span><span class="wk-status">' + escapeHtml(statusLabel) + '</span></div>' +
+          '<p class="body-text" style="margin:0">' + escapeHtml(e.note || '') + '</p>' + mid +
+          '</div>';
+      }).join('');
+    }
+    function escapeHtml(s){ var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+    weekInput.value = String(entries.length + 1);
+
+    addBtn.addEventListener('click', function(){
+      var week = parseInt(weekInput.value, 10) || (entries.length + 1);
+      var note = noteInput.value.trim();
+      var mid = midInput.value.trim();
+      var statusChip = statusGroup ? statusGroup.querySelector('.chip.selected') : null;
+      var status = statusChip ? statusChip.getAttribute('data-value') : '';
+      if(!note){ noteInput.focus(); return; }
+      entries.push({ week: week, note: note, midpoint: mid, status: status });
+      saveJSON('s5-weekly-log', entries);
+      noteInput.value = ''; midInput.value = '';
+      if(statusGroup){ statusGroup.querySelectorAll('.chip').forEach(function(c){ c.classList.remove('selected'); }); saveJSON('s5-log-status-draft', []); }
+      weekInput.value = String(entries.length + 1);
+      renderList();
+      pulseSaved();
+    });
+    renderList();
+  })();
+
+  /* ---------- page navigation ---------- */
+  var stageOf = pages.map(function(p){ return p.getAttribute('data-stage'); });
+  var progressFill = document.getElementById('progressFill');
+  var pageLabelTop = document.getElementById('pageLabelTop');
+  var pageLabelBottom = document.getElementById('pageLabelBottom');
+  var prevBtn = document.getElementById('prevBtn');
+  var nextBtn = document.getElementById('nextBtn');
+
+  function showPage(idx, skipScroll){
+    idx = Math.max(0, Math.min(TOTAL-1, idx));
+    pages[current].classList.remove('active');
+    current = idx;
+    pages[current].classList.add('active');
+    var pct = Math.round(((current+1)/TOTAL)*100);
+    progressFill.style.width = pct + '%';
+    pageLabelTop.textContent = 'صفحة ' + toArabicNum(current+1) + ' من ' + toArabicNum(TOTAL);
+    pageLabelBottom.textContent = toArabicNum(current+1) + ' / ' + toArabicNum(TOTAL);
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === TOTAL-1;
+    nextBtn.textContent = current === TOTAL-1 ? 'النهاية ✓' : 'التالي ←';
+    save('last-page', String(current));
+    updateDrawerActive();
+    if(!skipScroll) window.scrollTo({top:0, behavior:'smooth'});
+  }
+  prevBtn.addEventListener('click', function(){ showPage(current-1); });
+  nextBtn.addEventListener('click', function(){ showPage(current+1); });
+  document.getElementById('startBtn').addEventListener('click', function(){ showPage(1); });
+  window.addEventListener('keydown', function(e){
+    if(e.target && (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT')) return;
+    if(e.key === 'ArrowRight') showPage(current-1);
+    if(e.key === 'ArrowLeft') showPage(current+1);
+  });
+
+  /* ---------- drawer ---------- */
+  var drawer = document.getElementById('drawer');
+  var overlay = document.getElementById('drawerOverlay');
+  var menuBtn = document.getElementById('menuBtn');
+  var drawerClose = document.getElementById('drawerClose');
+  var drawerList = document.getElementById('drawerList');
+
+  var titles = [
+    'الغلاف','ملكيتك الخاصة','الافتتاحية','المقدمة ١/٢','المقدمة ٢/٢',
+    'أنا مين دلوقتي','هتبقى مين؟','بحس بإيه؟','بعمل إيه لما بحس بكده؟','وقفة — بعد مرحلة الوعي',
+    'تعرف على العصب الحائر','الجو اللي عشت فيه','...تكملة','تجربة مفصلية','لحظة فهم',
+    'اتعلمت السلوك ده منين؟','...تكملة','...تكملة','الشعور ده جايلي منين؟','وقفة — بعد مرحلة الجذور',
+    'التمييز: تفرقة الحماية عن الأذى','التعرف على الأجزاء الحامية','...تكملة','...تكملة','...تكملة',
+    'التعرف على الذات الحقيقية','...تكملة','جدول المقارنة','وقفة — بعد مرحلة التمييز',
+    'التقبل والرحمة: ليه نسيب المقاومة؟','معنى التقبل','...تكملة','...تكملة','...تكملة',
+    'الرحمة بالذات','...تكملة','...تكملة','تحرير الحكم الذاتي','وقفة — بعد مرحلة التقبل',
+    'الالتزام والتغيير: البناء المتدرج','تدّرج البناء — جسمك أولاً','...تكملة — البهجة الصغيرة',
+    '...تكملة — بأي قيمة؟','خطوة صغيرة والالتزام','المتابعة الأسبوعية','خلصت رحلتك 🌸'
+  ];
+  var stageLabels = ['البداية','المرحلة الأولى — الوعي','المرحلة الثانية — الجذور','المرحلة الثالثة — التمييز','المرحلة الرابعة — التقبل والرحمة','المرحلة الخامسة — الالتزام والتغيير'];
+  var stageBreaks = [0,5,10,20,29,39];
+  titles.forEach(function(t, i){
+    if(stageBreaks.indexOf(i) > -1){
+      var lbl = document.createElement('div');
+      lbl.className = 'drawer-stage-label';
+      lbl.textContent = stageLabels[stageBreaks.indexOf(i)];
+      drawerList.appendChild(lbl);
+    }
+    var b = document.createElement('button');
+    b.className = 'drawer-item';
+    b.setAttribute('data-idx', i);
+    b.innerHTML = '<span class="n">'+toArabicNum(i+1)+'</span><span>'+t+'</span>';
+    b.addEventListener('click', function(){ showPage(i); closeDrawer(); });
+    drawerList.appendChild(b);
+  });
+  function updateDrawerActive(){
+    Array.prototype.slice.call(drawerList.querySelectorAll('.drawer-item')).forEach(function(b){
+      b.classList.toggle('current', parseInt(b.getAttribute('data-idx'),10) === current);
+    });
+  }
+  function openDrawer(){ drawer.classList.add('open'); overlay.classList.add('open'); }
+  function closeDrawer(){ drawer.classList.remove('open'); overlay.classList.remove('open'); }
+  menuBtn.addEventListener('click', openDrawer);
+  drawerClose.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+
+  /* ---------- export ---------- */
+  var exportBtn = document.getElementById('exportBtn');
+  var exportBtnDefaultLabel = exportBtn.textContent;
+  var downloadsNS = null;
+  if(window.claude && typeof window.claude.use === 'function'){
+    window.claude.use('downloads').then(function(ns){ downloadsNS = ns; }).catch(function(){ downloadsNS = null; });
+  }
+  exportBtn.addEventListener('click', function(){
+    var lines = ['جورنال الوعي والتحرر — النفس الحقيقية', 'نسخة إجابات صدرت بتاريخ: ' + new Date().toLocaleDateString('ar-EG'), ''];
+    document.querySelectorAll('[data-key]').forEach(function(el){
+      var key = el.getAttribute('data-key');
+      var val = el.value;
+      if(val && val.trim()){
+        lines.push('• ' + key + ':');
+        lines.push('  ' + val.replace(/\n/g,'\n  '));
+        lines.push('');
+      }
+    });
+    document.querySelectorAll('.chip-row[data-group]').forEach(function(group){
+      var key = group.getAttribute('data-group');
+      var vals = loadJSON(key, []);
+      if(vals.length){ lines.push('• ' + key + ': ' + vals.join('، ')); lines.push(''); }
+    });
+    var tl = loadJSON('timeline-points', []);
+    if(tl.length){
+      lines.push('• خط زمني بصري:');
+      tl.forEach(function(p){ lines.push('  - ' + p.label); });
+      lines.push('');
+    }
+    var wlog = loadJSON('s5-weekly-log', []);
+    if(wlog.length){
+      lines.push('• المتابعة الأسبوعية:');
+      wlog.forEach(function(e){
+        lines.push('  الأسبوع ' + e.week + ' (' + (e.status||'—') + '): ' + e.note + (e.midpoint ? ' | ' + e.midpoint : ''));
+      });
+      lines.push('');
+    }
+    var blob = new Blob([lines.join('\n')], {type:'text/plain;charset=utf-8'});
+    var filename = 'اجاباتي-النفس-الحقيقية.txt';
+
+    if(downloadsNS){
+      exportBtn.disabled = true; exportBtn.textContent = '...جارٍ التنزيل';
+      downloadsNS.save({ filename: filename, data: blob }).then(function(){
+        exportBtn.textContent = 'تم ✓';
+        setTimeout(function(){ exportBtn.textContent = exportBtnDefaultLabel; exportBtn.disabled = false; }, 1600);
+      }).catch(function(err){
+        exportBtn.disabled = false; exportBtn.textContent = exportBtnDefaultLabel;
+        if(err && err.code !== 'declined') alert('مقدرناش ننزّل الملف دلوقتي. جرّب تاني.');
+      });
+      return;
+    }
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', function(){
+    if(!confirm('متأكد إنك عايز تمسح كل إجاباتك؟ الخطوة دي مش هترجع.')) return;
+    if(!store) return;
+    var keys = [];
+    for(var i=0;i<store.length;i++){ var k = store.key(i); if(k.indexOf(PREFIX)===0) keys.push(k); }
+    keys.forEach(function(k){ store.removeItem(k); });
+    location.reload();
+  });
+
+  /* ---------- restore last page ---------- */
+  var last = parseInt(load('last-page') || '0', 10);
+  if(!isNaN(last) && last > 0 && last < TOTAL){ showPage(last, true); }
+  else { showPage(0, true); }
+})();
+</script>
 </body>
 </html>
