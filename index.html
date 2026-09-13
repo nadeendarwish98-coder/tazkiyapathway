@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nadeen's Classroom Games</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2B2140;
+    --paper:#FFF9F0;
+    --card:#FFFFFF;
+    --sun:#FFC93C;
+    --coral:#FF6B6B;
+    --sky:#4EA8DE;
+    --grass:#4CAF6D;
+    --grape:#8E7CFF;
+    --line:#EFE6D8;
+    --muted:#6B6280;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(circle at 8% 8%, rgba(255,201,60,0.16), transparent 38%),
+      radial-gradient(circle at 92% 12%, rgba(78,168,222,0.14), transparent 40%),
+      radial-gradient(circle at 85% 92%, rgba(255,107,107,0.12), transparent 42%),
+      var(--paper);
+    color:var(--ink);
+    font-family:'Nunito',sans-serif;
+    min-height:100vh;
+  }
+  .wrap{ max-width:960px; margin:0 auto; padding:56px 24px 80px; }
+
+  header{ text-align:center; margin-bottom:48px; }
+  .eyebrow{
+    display:inline-block; font-weight:800; font-size:13px; letter-spacing:1.5px;
+    text-transform:uppercase; color:var(--grape); margin-bottom:10px;
+  }
+  h1{
+    font-family:'Baloo 2', cursive; font-weight:800;
+    font-size:clamp(30px,5.5vw,46px); margin:0 0 12px; text-wrap:balance;
+  }
+  header p{
+    max-width:520px; margin:0 auto; color:var(--muted); font-weight:600;
+    font-size:16px; line-height:1.5;
+  }
+
+  .grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:22px; margin-top:8px;
+  }
+
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:20px;
+    padding:26px 22px 22px; display:flex; flex-direction:column; gap:12px;
+    text-decoration:none; color:var(--ink);
+    box-shadow:0 1px 2px rgba(43,33,64,0.04);
+    transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  }
+  .card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 28px rgba(43,33,64,0.10);
+  }
+  .card:focus-visible{ outline:3px solid var(--grape); outline-offset:3px; }
+
+  .card .icon{
+    width:56px; height:56px; border-radius:16px; font-size:28px;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .card:nth-child(3n+1) .icon{ background:#FFF1CC; }
+  .card:nth-child(3n+2) .icon{ background:#FFE1E1; }
+  .card:nth-child(3n+3) .icon{ background:#E3F0FF; }
+
+  .card h2{
+    font-family:'Baloo 2', cursive; font-size:20px; margin:0; font-weight:700;
+  }
+  .card p{
+    margin:0; font-size:14.5px; line-height:1.5; color:var(--muted); font-weight:600;
+    flex-grow:1;
+  }
+  .card .tags{ display:flex; gap:6px; flex-wrap:wrap; margin-top:2px; }
+  .tag{
+    font-size:11.5px; font-weight:800; letter-spacing:.3px; text-transform:uppercase;
+    padding:4px 9px; border-radius:999px; background:var(--paper); color:var(--muted);
+    border:1px solid var(--line);
+  }
+  .card .play{
+    margin-top:4px; font-family:'Baloo 2', cursive; font-weight:700; font-size:14.5px;
+    color:var(--grape); display:flex; align-items:center; gap:6px;
+  }
+  .card .play::after{ content:'→'; transition:transform .15s ease; }
+  .card:hover .play::after{ transform:translateX(3px); }
+
+  footer{
+    margin-top:56px; text-align:center; color:var(--muted);
+    font-size:13.5px; font-weight:600;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .card{ transition:none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Classroom Games</span>
+    <h1>🎨 Nadeen's Game Library</h1>
+    <p>Browser games for warm-ups, icebreakers, and first-day fun — just tap a card to play, no downloads needed.</p>
+  </header>
+
+  <div class="grid">
+    <a class="card" href="5-seconds-challenge.html">
+      <div class="icon">⏰</div>
+      <h2>5 Seconds Challenge</h2>
+      <p>Fast-paced game-show style rounds across 7 levels — letters, memory, acting, and brain teasers, all against a 5-second timer.</p>
+      <div class="tags"><span class="tag">Warm-up</span><span class="tag">Whole class</span></div>
+      <span class="play">Play</span>
+    </a>
+
+    <a class="card" href="mystery-box-game.html">
+      <div class="icon">🎁</div>
+      <h2>Mystery Box Game</h2>
+      <p>25 mystery boxes, each hiding a fun icebreaker question or dare — great for getting students talking on day one.</p>
+      <div class="tags"><span class="tag">Icebreaker</span><span class="tag">First day</span></div>
+      <span class="play">Play</span>
+    </a>
+
+    <a class="card" href="mystery-picture-game.html">
+      <div class="icon">🔍</div>
+      <h2>Mystery Picture</h2>
+      <p>Reveal a hidden picture tile by tile, use clues, and guess what it is — three difficulty levels plus a teacher mode.</p>
+      <div class="tags"><span class="tag">Vocabulary</span><span class="tag">3 levels</span></div>
+      <span class="play">Play</span>
+    </a>
+  </div>
+
+  <footer>New games get added here over time — bookmark this page.</footer>
+</div>
+</body>
+</html>
